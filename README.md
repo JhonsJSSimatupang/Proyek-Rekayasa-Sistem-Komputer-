@@ -117,34 +117,6 @@ Components & Interfaces
        ▼
 Verification
 ```
-
-## 🚀 Membuka Model
-
-1. Pastikan MATLAB dan System Composer sudah terpasang.
-2. Clone repository:
-
-   ```bash
-   git clone https://github.com/USERNAME/REPOSITORY.git
-   ```
-
-3. Buka MATLAB.
-4. Arahkan Current Folder ke direktori proyek.
-5. Buka model:
-
-   ```matlab
-   open_system(fullfile( ...
-       '03_MODEL_MATLAB', ...
-       'SiHADIR_Architecture.slx'));
-   ```
-
-6. Jika diperlukan, tambahkan direktori model ke MATLAB path:
-
-   ```matlab
-   addpath(fullfile(pwd, '03_MODEL_MATLAB'));
-   ```
-
-Pastikan file model `.slx` dan dictionary `.sldd` tetap berada dalam struktur direktori proyek.
-
 ## 🔍 Development Status
 
 Proyek masih berada dalam tahap pemeriksaan dan penyempurnaan arsitektur.
