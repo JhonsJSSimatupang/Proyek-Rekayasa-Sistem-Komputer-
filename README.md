@@ -50,7 +50,7 @@ Arsitektur SiHADIR terdiri dari enam subsistem utama:
 Proyek-Rekayasa-Sistem-Komputer-/
 │
 ├── 01_DOKUMEN_UTAMA/
-│   └── README.md (Panduan perakitan dokumen laporan utama SRS & Arsitektur)
+│   └── (Folder kosong — dokumen utama PDF dikumpulkan terpisah)
 │
 ├── 02_DOKUMENTASI_SUMBER/
 │   ├── README.md (Panduan struktur bab S1..S10 & cara edit RTM_SiHADIR.csv)
