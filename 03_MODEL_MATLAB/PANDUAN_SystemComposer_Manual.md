@@ -20,7 +20,7 @@ jadi model yang kamu buat akan sama persis dengan yang diperiksa `verify_archite
 Kalau `systemcomposer.createModel` sudah ada di MATLAB-mu, kamu **tidak perlu** klik manual:
 
 ```matlab
-cd('C:\Users\Jhons Janner Samuel\Downloads\RSK\FINAL')
+cd('03_MODEL_MATLAB')
 verify_architecture_spec          % 15 pemeriksaan, harus LULUS
 build_sihadir_architecture        % menghasilkan SiHADIR_Architecture.slx
 verify_built_model                % 9 pemeriksaan pada model hasil
@@ -411,7 +411,7 @@ verify_built_model        % 9 pemeriksaan M1..M9, target LULUS
 
 ---
 
-## 12. Cek Jhons
+## 12. Checklist Verifikasi Akhir Kelompok
 
 - [ ] `ver` menampilkan **System Composer**
 - [ ] Model tersimpan sebagai `SiHADIR_Architecture.slx` di folder `FINAL`

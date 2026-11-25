@@ -27,3 +27,6 @@ Thumbs.db
 # Build intermediate
 _build/
 
+# Dokumen laporan utama dikumpulkan terpisah
+01_DOKUMEN_UTAMA/
+

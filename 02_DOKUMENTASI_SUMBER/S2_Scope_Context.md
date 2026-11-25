@@ -1,5 +1,5 @@
 # S2 — Overview, Problem, Scope, Boundary, Context
-Proyek: SiHADIR · CCE61317 RSK · Kelompok Jhons
+Proyek: SiHADIR · CCE61317 RSK · Tim Pengembang SiHADIR (Kelas B)
 
 ## 2.1 Identitas sistem
 - Nama: SiHADIR (Sistem Informasi Kehadiran Digital Berbasis Wajah)
@@ -78,7 +78,7 @@ SiHADIR berada pada **awal Engineering Development**, bukan Concept Development:
 - A-02 Inferensi wajah berjalan di terminal (edge), bukan di server.
 - A-03 Satu sesi = satu kelas terjadwal, 40 mahasiswa/terminal.
 - A-04 MATLAB R2024b+ dengan System Composer + Requirements Toolbox + Simulink.
-- A-05 Identitas kelompok menggunakan `KelompokJhons` (Kelompok Jhons — Kelas B).
+- A-05 Identitas kelompok menggunakan `Tim Pengembang SiHADIR (Kelas B)`.
 - A-06 Presensi manual saat ini 5–10 menit/sesi (butuh data lapangan).
 - A-07 Setiap mahasiswa sudah punya identitas (NIM) di SIAKAD.
 - A-08 Dosen dan admin memiliki akun SSO aktif.

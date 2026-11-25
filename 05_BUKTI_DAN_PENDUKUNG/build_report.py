@@ -53,7 +53,7 @@ CHAPTERS = [
     ("S10_Model_MATLAB.md", "Model Arsitektur di MATLAB (System Composer)"),
 ]
 
-GROUP = "Kelompok Jhons (Kelas B)"
+GROUP = "Tim Pengembang SiHADIR (Kelas B)"
 COURSE = "CCE61317 Rekayasa Sistem Komputer (RSK)"
 LECTURER = "Sabriansyah Rizqika Akbar, S.T., M.Eng., Ph.D."
 DOC_VERSION = "1.0 (Final)"
@@ -182,8 +182,8 @@ COVER = f"""
     <tr><td class="k">Dosen Pengampu</td><td>{LECTURER}</td></tr>
     <tr><td class="k">Kelompok</td><td>{GROUP}</td></tr>
     <tr><td class="k">Anggota Kelompok</td><td>
-      1. Jhons Janner Samuel S &mdash; NIM 245150301111009<br>
-      2. Muhamad Al Fatih &mdash; NIM 245150301111024<br>
+      1. Muhamad Al Fatih &mdash; NIM 245150301111024<br>
+      2. Jhons Janner Samuel S &mdash; NIM 245150301111009<br>
       3. Azzam Galen Crosdiyanto &mdash; NIM 245150307111044<br>
       4. Muhammad Mushlih Fajr &mdash; NIM 245150307111047<br>
       5. Keirio Omar Attallah &mdash; NIM 245150307111061

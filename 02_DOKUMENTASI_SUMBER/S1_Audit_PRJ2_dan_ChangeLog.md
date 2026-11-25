@@ -1,5 +1,5 @@
 # S1 — Audit PRJ2 & Change Log
-Proyek: SiHADIR · CCE61317 RSK · Kelompok Jhons (Kelas B)
+Proyek: SiHADIR · CCE61317 RSK · Tim Pengembang SiHADIR (Kelas B)
 Status: Final (Terverifikasi)
 
 ## A. Tabel audit (defect → perbaikan)
@@ -62,4 +62,4 @@ Total: 35 requirement (14 FR, 6 PRF, 6 IF, 5 SEC, 4 OPS).
 - A-02: Terminal = laptop + webcam USB yang dioperasikan dosen di kelas; inferensi wajah berjalan di terminal (edge), bukan di server.
 - A-03: Satu sesi = satu kelas terjadwal; 40 mahasiswa adalah batas desain per terminal.
 - A-04: MATLAB R2024b atau lebih baru, dengan System Composer + Requirements Toolbox + Simulink.
-- A-05: Identitas kelompok ditetapkan sebagai `KelompokJhons` (Kelompok Jhons — Kelas B) untuk penamaan berkas `RSK_FINAL_KelompokJhons_SRS.pdf`.
+- A-05: Identitas kelompok ditetapkan sebagai `Tim Pengembang SiHADIR (Kelas B)` yang beranggotakan 5 mahasiswa.

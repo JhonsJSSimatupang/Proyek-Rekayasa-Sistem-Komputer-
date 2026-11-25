@@ -47,11 +47,7 @@ Arsitektur SiHADIR terdiri dari enam subsistem utama:
 ## 📂 Struktur Repository
 
 ```text
-Proyek RSK-System Composer/
-│
-├── 01_DOKUMEN_UTAMA/
-│   ├── RSK_FINAL_KelompokJhons_SRS.pdf
-│   └── SiHADIR_Final_SRS_Architecture.pdf
+Proyek-Rekayasa-Sistem-Komputer-/
 │
 ├── 02_DOKUMENTASI_SUMBER/
 │   ├── S1_Audit_PRJ2_dan_ChangeLog.md .. S10_Model_MATLAB.md
@@ -66,7 +62,8 @@ Proyek RSK-System Composer/
 ├── 04_DIAGRAM_DAN_VISUALISASI/
 │   ├── SiHADIR_root.png & SiHADIR_S1..S6.png (ekspor kanvas System Composer)
 │   ├── fig_arsitektur_sihadir.svg / .png / .mmd
-│   └── fig_alur_presensi.svg / .png
+│   ├── fig_alur_presensi.svg / .png
+│   └── Diagram Context, Use Case, Sequence (SD-01..SD-04), & Dekomposisi Fungsi
 │
 ├── 05_BUKTI_DAN_PENDUKUNG/
 │   ├── S10_evidence.txt (transkrip verifikasi MATLAB 15/15 & 9/9 LULUS)
@@ -133,7 +130,7 @@ Seluruh rantai rekayasa dan model arsitektur telah melewati verifikasi otomatis 
 
 Target keluaran proyek meliputi:
 
-- Final System Requirement Specification & Architecture Report (`01_DOKUMEN_UTAMA/RSK_FINAL_KelompokJhons_SRS.pdf`)
+- System Requirement Specification (SRS) & Architecture Report (`02_DOKUMENTASI_SUMBER/S1..S10.md`)
 - Context Diagram, Use Case Diagram, & 4 Sequence Diagrams (`S2`, `S4`)
 - Functional Architecture — IDEF0 & Functional Flow Diagram (`S6`, `fig_alur_presensi.svg/.png`)
 - Physical Architecture & Decomposition Diagram (`S7`, `fig_arsitektur_sihadir.svg/.png`)
@@ -142,12 +139,12 @@ Target keluaran proyek meliputi:
 - Verification, Acceptance Criteria, Risk Register, & Change Impact Analysis (`S5`, `S9`)
 - MATLAB System Composer Model & Interface Dictionary (`03_MODEL_MATLAB/SiHADIR_Architecture.slx` & `.sldd`)
 
-## 👥 Anggota Kelompok (Kelompok Jhons — Kelas B)
+## 👥 Anggota Kelompok (Kelas B)
 
 | No | Nama Mahasiswa | NIM |
 | :-: | :--- | :--- |
-| 1 | Jhons Janner Samuel S | 245150301111009 |
-| 2 | Muhamad Al Fatih | 245150301111024 |
+| 1 | Muhamad Al Fatih | 245150301111024 |
+| 2 | Jhons Janner Samuel S | 245150301111009 |
 | 3 | Azzam Galen Crosdiyanto | 245150307111044 |
 | 4 | Muhammad Mushlih Fajr | 245150307111047 |
 | 5 | Keirio Omar Attallah | 245150307111061 |

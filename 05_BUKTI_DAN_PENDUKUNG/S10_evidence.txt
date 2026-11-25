@@ -1,6 +1,6 @@
 === SiHADIR verification transcript ===
 MATLAB 26.2.0.3433840 (R2026b) Update 1 | 2026-11-25 20:08
-Folder: C:\Users\Jhons Janner Samuel\Downloads\RSK\FINAL
+Folder: 03_MODEL_MATLAB
 
 --- 1. Spesifikasi arsitektur ---
 

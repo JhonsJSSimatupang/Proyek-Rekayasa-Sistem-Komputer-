@@ -107,7 +107,7 @@ Seluruh item terbuka (T-01 s.d. T-07) dari tahap penyusunan telah diputuskan dan
 
 | # | Item Keputusan | Keputusan Final Kelompok | Artefak Terkait |
 |---|---|---|---|
-| T-01 | Identitas kelompok untuk nama berkas | Ditetapkan `KelompokJhons` (`RSK_FINAL_KelompokJhons_SRS.pdf`) konsisten dengan PRJ2 | Cover, S1, S2 |
+| T-01 | Identitas kelompok untuk dokumen laporan | Ditetapkan `Tim Pengembang SiHADIR (Kelas B)` (5 anggota kelompok) | Cover, S1, S2 |
 | T-02 | Rentang pencahayaan operasional ruang kelas | Dikunci pada **300–700 lux** (standar ruang kelas dalam ruang) dengan peringatan otomatis di luar rentang | SR-OPS3, S6 (F2.1) |
 | T-03 | Prioritas notifikasi pengingat 10 menit sebelum tutup sesi | Dikunci sebagai **Should (`S`)** agar gangguan gateway pihak ketiga tidak memblokir penutupan sesi | SR-FR11, SR-IF5 |
 | T-04 | Beban puncak penggunaan serentak antarmuka dosen/admin | Dikunci pada **40 pengguna bersamaan** dengan target respons `p95 ≤ 1 detik` dan `0 error 5xx` | SR-IF6, S8 (IF-UI2B) |
