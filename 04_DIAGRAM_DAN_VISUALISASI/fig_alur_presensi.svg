@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1162" height="1194" viewBox="0 0 1162 1194" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52606D"/></marker></defs>
+<rect width="1162" height="1194" fill="#FFFFFF"/>
+<text x="581.0" y="34" text-anchor="middle" font-size="17" font-weight="600" fill="#1F2933">SiHADIR — Alur Proses Presensi (F1–F12)</text>
+<text x="581.0" y="54" text-anchor="middle" font-size="10.5" fill="#616E7C">setiap langkah diberi nomor fungsi sesuai S6, sehingga bisa ditelusuri ke requirement di S5</text>
+<rect x="26" y="74" width="214" height="1068" rx="8" fill="#FDECEF" opacity="0.45" stroke="#B03A4E" stroke-width="1.1"/>
+<text x="133.0" y="94" text-anchor="middle" font-size="11.5" font-weight="700" fill="#B03A4E">Dosen</text>
+<text x="133.0" y="109" text-anchor="middle" font-size="8.5" fill="#616E7C">C5.1 / C5.2</text>
+<rect x="250" y="74" width="214" height="1068" rx="8" fill="#E8F1FB" opacity="0.45" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="357.0" y="94" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2F6FB2">Terminal (S1)</text>
+<text x="357.0" y="109" text-anchor="middle" font-size="8.5" fill="#616E7C">C1.1-C1.11</text>
+<rect x="474" y="74" width="214" height="1068" rx="8" fill="#EAF6EC" opacity="0.45" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="581.0" y="94" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2E7D4F">Layanan (S2)</text>
+<text x="581.0" y="109" text-anchor="middle" font-size="8.5" fill="#616E7C">C2.1-C2.8</text>
+<rect x="698" y="74" width="214" height="1068" rx="8" fill="#FFF4E5" opacity="0.45" stroke="#B4741E" stroke-width="1.1"/>
+<text x="805.0" y="94" text-anchor="middle" font-size="11.5" font-weight="700" fill="#B4741E">Integrasi (S3)</text>
+<text x="805.0" y="109" text-anchor="middle" font-size="8.5" fill="#616E7C">C3.1-C3.4</text>
+<rect x="922" y="74" width="214" height="1068" rx="8" fill="#F3EDF9" opacity="0.45" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="1029.0" y="94" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6B4C9A">Data (S4)</text>
+<text x="1029.0" y="109" text-anchor="middle" font-size="8.5" fill="#616E7C">C4.1-C4.4</text>
+<path d="M133.0,172 L133.0,181.0 L581.0,181.0 L581.0,184" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M581.0,234 L581.0,243.0 L357.0,243.0 L357.0,246" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,296 L357.0,308" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,358 L357.0,370" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,420 L357.0,432" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,482 L357.0,494" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,544 L357.0,556" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,606 L357.0,618" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,668 L357.0,677.0 L581.0,677.0 L581.0,680" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M581.0,730 L581.0,739.0 L357.0,739.0 L357.0,742" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M357.0,792 L357.0,801.0 L1029.0,801.0 L1029.0,804" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M1029.0,854 L1029.0,863.0 L581.0,863.0 L581.0,866" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M581.0,916 L581.0,925.0 L805.0,925.0 L805.0,928" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M805.0,978 L805.0,987.0 L581.0,987.0 L581.0,990" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M581.0,1040 L581.0,1049.0 L805.0,1049.0 L805.0,1052" fill="none" stroke="#52606D" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="38" y="128" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#B03A4E" stroke-width="1.3"/>
+<text x="46" y="144" font-size="8" font-weight="700" fill="#B03A4E">F1.1</text>
+<text x="133.0" y="160" text-anchor="middle" font-size="9.2" fill="#1F2933">Buka sesi presensi</text>
+<rect x="486" y="190" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.3"/>
+<text x="494" y="206" font-size="8" font-weight="700" fill="#2E7D4F">F1.2</text>
+<text x="581.0" y="222" text-anchor="middle" font-size="9.2" fill="#1F2933">Buat sesi &amp; muat roster</text>
+<rect x="262" y="252" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3"/>
+<text x="270" y="268" font-size="8" font-weight="700" fill="#2F6FB2">F1.2</text>
+<text x="357.0" y="284" text-anchor="middle" font-size="9.2" fill="#1F2933">Terima roster + template</text>
+<rect x="262" y="314" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3"/>
+<text x="270" y="330" font-size="8" font-weight="700" fill="#2F6FB2">F2.1</text>
+<text x="357.0" y="346" text-anchor="middle" font-size="9.2" fill="#1F2933">Ambil frame kamera</text>
+<rect x="262" y="376" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3"/>
+<text x="270" y="392" font-size="8" font-weight="700" fill="#2F6FB2">F2.2 / F2.4</text>
+<text x="357.0" y="408" text-anchor="middle" font-size="9.2" fill="#1F2933">Deteksi &amp; rekognisi wajah</text>
+<rect x="262" y="438" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3" stroke-dasharray="2 2"/>
+<text x="270" y="454" font-size="8" font-weight="700" fill="#2F6FB2">F2.3</text>
+<text x="357.0" y="470" text-anchor="middle" font-size="9.2" fill="#1F2933">Uji liveness (pasif + aktif)</text>
+<rect x="262" y="500" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3"/>
+<text x="270" y="516" font-size="8" font-weight="700" fill="#2F6FB2">F2.5</text>
+<text x="357.0" y="532" text-anchor="middle" font-size="9.2" fill="#1F2933">Cocokkan dengan template</text>
+<rect x="262" y="562" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3"/>
+<text x="270" y="578" font-size="8" font-weight="700" fill="#2F6FB2">F4.2</text>
+<text x="357.0" y="594" text-anchor="middle" font-size="9.2" fill="#1F2933">Catat kehadiran lokal</text>
+<rect x="262" y="624" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3"/>
+<text x="270" y="640" font-size="8" font-weight="700" fill="#2F6FB2">F10</text>
+<text x="357.0" y="656" text-anchor="middle" font-size="9.2" fill="#1F2933">Tampilkan hasil ke mahasiswa</text>
+<rect x="486" y="686" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.3"/>
+<text x="494" y="702" font-size="8" font-weight="700" fill="#2E7D4F">F3</text>
+<text x="581.0" y="718" text-anchor="middle" font-size="9.2" fill="#1F2933">Terapkan aturan kehadiran</text>
+<rect x="262" y="748" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.3"/>
+<text x="270" y="764" font-size="8" font-weight="700" fill="#2F6FB2">F4.3</text>
+<text x="357.0" y="780" text-anchor="middle" font-size="9.2" fill="#1F2933">Sinkronkan catatan ke server</text>
+<rect x="934" y="810" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.3"/>
+<text x="942" y="826" font-size="8" font-weight="700" fill="#6B4C9A">F4.1</text>
+<text x="1029.0" y="842" text-anchor="middle" font-size="9.2" fill="#1F2933">Simpan ke Attendance DB</text>
+<rect x="486" y="872" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.3"/>
+<text x="494" y="888" font-size="8" font-weight="700" fill="#2E7D4F">F5.1</text>
+<text x="581.0" y="904" text-anchor="middle" font-size="9.2" fill="#1F2933">Susun rekap kehadiran</text>
+<rect x="710" y="934" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.3"/>
+<text x="718" y="950" font-size="8" font-weight="700" fill="#B4741E">F5.2</text>
+<text x="805.0" y="966" text-anchor="middle" font-size="9.2" fill="#1F2933">Kirim rekap ke SIAKAD</text>
+<rect x="486" y="996" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.3"/>
+<text x="494" y="1012" font-size="8" font-weight="700" fill="#2E7D4F">F6.1 / F6.2</text>
+<text x="581.0" y="1028" text-anchor="middle" font-size="9.2" fill="#1F2933">Kirim notifikasi</text>
+<rect x="710" y="1058" width="190" height="44" rx="6" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.3"/>
+<text x="718" y="1074" font-size="8" font-weight="700" fill="#B4741E">F6.1</text>
+<text x="805.0" y="1090" text-anchor="middle" font-size="9.2" fill="#1F2933">Teruskan ke WhatsApp Gateway</text>
+<text x="468" y="468" font-size="8.5" fill="#B03A4E">gagal → tolak,</text>
+<text x="468" y="480" font-size="8.5" fill="#B03A4E">ulang maks. 3×</text>
+<text x="26" y="1176" font-size="9" fill="#616E7C">Kotak putus-putus = titik keputusan (liveness). Panah = urutan langkah.</text>
+</svg>

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1352" height="837" viewBox="0 0 1352 837" font-family="Segoe UI, Arial, sans-serif">
+<rect width="1352" height="837" fill="#FFFFFF"/>
+<text x="676.0" y="30" text-anchor="middle" font-size="17" font-weight="600" fill="#1F2933">SiHADIR — Dekomposisi Fisik (6 subsistem, 33 komponen)</text>
+<text x="676.0" y="50" text-anchor="middle" font-size="10.5" fill="#616E7C">Setiap komponen memuat fungsi yang dialokasikan di S8; tautan dan antarmuka digambar pada model System Composer</text>
+<rect x="34" y="74" width="198" height="667" rx="10" fill="#E8F1FB" stroke="#2F6FB2" stroke-width="1.6"/>
+<text x="133.0" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2F6FB2">S1 · Edge Terminal</text>
+<text x="133.0" y="103" text-anchor="middle" font-size="9" fill="#2F6FB2">11 komponen</text>
+<rect x="248" y="74" width="198" height="502" rx="10" fill="#EAF6EC" stroke="#2E7D4F" stroke-width="1.6"/>
+<text x="347.0" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2E7D4F">S2 · Backend Services</text>
+<text x="347.0" y="103" text-anchor="middle" font-size="9" fill="#2E7D4F">8 komponen</text>
+<rect x="462" y="74" width="198" height="282" rx="10" fill="#FFF4E5" stroke="#B4741E" stroke-width="1.6"/>
+<text x="561.0" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B4741E">S3 · Integration &amp; Comms</text>
+<text x="561.0" y="103" text-anchor="middle" font-size="9" fill="#B4741E">4 komponen</text>
+<rect x="676" y="74" width="198" height="282" rx="10" fill="#F3EDF9" stroke="#6B4C9A" stroke-width="1.6"/>
+<text x="775.0" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6B4C9A">S4 · Data Management</text>
+<text x="775.0" y="103" text-anchor="middle" font-size="9" fill="#6B4C9A">4 komponen</text>
+<rect x="890" y="74" width="198" height="227" rx="10" fill="#FDECEF" stroke="#B03A4E" stroke-width="1.6"/>
+<text x="989.0" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B03A4E">S5 · User Interfaces</text>
+<text x="989.0" y="103" text-anchor="middle" font-size="9" fill="#B03A4E">3 komponen</text>
+<rect x="1104" y="74" width="198" height="227" rx="10" fill="#E9F5F6" stroke="#20707A" stroke-width="1.6"/>
+<text x="1203.0" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#20707A">S6 · Identity &amp; Privacy</text>
+<text x="1203.0" y="103" text-anchor="middle" font-size="9" fill="#20707A">3 komponen</text>
+<rect x="42" y="122" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="139" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.1</text>
+<text x="133.0" y="154" text-anchor="middle" font-size="9.8" fill="#1F2933">Camera</text>
+<rect x="42" y="177" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="194" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.2</text>
+<text x="133.0" y="209" text-anchor="middle" font-size="9.8" fill="#1F2933">Compute Unit</text>
+<rect x="42" y="232" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="249" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.3</text>
+<text x="133.0" y="264" text-anchor="middle" font-size="9.8" fill="#1F2933">Terminal Application</text>
+<rect x="42" y="287" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="304" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.4</text>
+<text x="133.0" y="319" text-anchor="middle" font-size="9.8" fill="#1F2933">Face Detection &amp; Recognition</text>
+<rect x="42" y="342" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="359" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.5</text>
+<text x="133.0" y="374" text-anchor="middle" font-size="9.8" fill="#1F2933">Liveness Engine</text>
+<rect x="42" y="397" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="414" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.6</text>
+<text x="133.0" y="429" text-anchor="middle" font-size="9.8" fill="#1F2933">Local Record Store</text>
+<rect x="42" y="452" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="469" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.7</text>
+<text x="133.0" y="484" text-anchor="middle" font-size="9.8" fill="#1F2933">Roster &amp; Template Cache</text>
+<rect x="42" y="507" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="524" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.8</text>
+<text x="133.0" y="539" text-anchor="middle" font-size="9.8" fill="#1F2933">Display</text>
+<rect x="42" y="562" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="579" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.9</text>
+<text x="133.0" y="594" text-anchor="middle" font-size="9.8" fill="#1F2933">Sync Agent</text>
+<rect x="42" y="617" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="634" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.10</text>
+<text x="133.0" y="649" text-anchor="middle" font-size="9.8" fill="#1F2933">Time Client</text>
+<rect x="42" y="672" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="133.0" y="689" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">C1.11</text>
+<text x="133.0" y="704" text-anchor="middle" font-size="9.8" fill="#1F2933">Readiness Monitor</text>
+<rect x="256" y="122" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="139" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.1</text>
+<text x="347.0" y="154" text-anchor="middle" font-size="9.8" fill="#1F2933">API Gateway</text>
+<rect x="256" y="177" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="194" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.2</text>
+<text x="347.0" y="209" text-anchor="middle" font-size="9.8" fill="#1F2933">Session Service</text>
+<rect x="256" y="232" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="249" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.3</text>
+<text x="347.0" y="264" text-anchor="middle" font-size="9.8" fill="#1F2933">Attendance Service</text>
+<rect x="256" y="287" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="304" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.4</text>
+<text x="347.0" y="319" text-anchor="middle" font-size="9.8" fill="#1F2933">Rule Engine</text>
+<rect x="256" y="342" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="359" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.5</text>
+<text x="347.0" y="374" text-anchor="middle" font-size="9.8" fill="#1F2933">Recap Service</text>
+<rect x="256" y="397" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="414" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.6</text>
+<text x="347.0" y="429" text-anchor="middle" font-size="9.8" fill="#1F2933">Notification Service</text>
+<rect x="256" y="452" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="469" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.7</text>
+<text x="347.0" y="484" text-anchor="middle" font-size="9.8" fill="#1F2933">Audit Service</text>
+<rect x="256" y="507" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="347.0" y="524" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">C2.8</text>
+<text x="347.0" y="539" text-anchor="middle" font-size="9.8" fill="#1F2933">Access Control Service</text>
+<rect x="470" y="122" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.1"/>
+<text x="561.0" y="139" text-anchor="middle" font-size="9" font-weight="700" fill="#B4741E">C3.1</text>
+<text x="561.0" y="154" text-anchor="middle" font-size="9.8" fill="#1F2933">SIAKAD Connector</text>
+<rect x="470" y="177" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.1"/>
+<text x="561.0" y="194" text-anchor="middle" font-size="9" font-weight="700" fill="#B4741E">C3.2</text>
+<text x="561.0" y="209" text-anchor="middle" font-size="9.8" fill="#1F2933">Notification Connector</text>
+<rect x="470" y="232" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.1"/>
+<text x="561.0" y="249" text-anchor="middle" font-size="9" font-weight="700" fill="#B4741E">C3.3</text>
+<text x="561.0" y="264" text-anchor="middle" font-size="9.8" fill="#1F2933">SSO Connector</text>
+<rect x="470" y="287" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.1"/>
+<text x="561.0" y="304" text-anchor="middle" font-size="9" font-weight="700" fill="#B4741E">C3.4</text>
+<text x="561.0" y="319" text-anchor="middle" font-size="9.8" fill="#1F2933">NTP Connector</text>
+<rect x="684" y="122" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="775.0" y="139" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">C4.1</text>
+<text x="775.0" y="154" text-anchor="middle" font-size="9.8" fill="#1F2933">Template DB</text>
+<rect x="684" y="177" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="775.0" y="194" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">C4.2</text>
+<text x="775.0" y="209" text-anchor="middle" font-size="9.8" fill="#1F2933">Attendance DB</text>
+<rect x="684" y="232" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="775.0" y="249" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">C4.3</text>
+<text x="775.0" y="264" text-anchor="middle" font-size="9.8" fill="#1F2933">Audit Store</text>
+<rect x="684" y="287" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="775.0" y="304" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">C4.4</text>
+<text x="775.0" y="319" text-anchor="middle" font-size="9.8" fill="#1F2933">Consent Registry</text>
+<rect x="898" y="122" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#B03A4E" stroke-width="1.1"/>
+<text x="989.0" y="139" text-anchor="middle" font-size="9" font-weight="700" fill="#B03A4E">C5.1</text>
+<text x="989.0" y="154" text-anchor="middle" font-size="9.8" fill="#1F2933">Lecturer UI</text>
+<rect x="898" y="177" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#B03A4E" stroke-width="1.1"/>
+<text x="989.0" y="194" text-anchor="middle" font-size="9" font-weight="700" fill="#B03A4E">C5.2</text>
+<text x="989.0" y="209" text-anchor="middle" font-size="9.8" fill="#1F2933">Admin Console</text>
+<rect x="898" y="232" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#B03A4E" stroke-width="1.1"/>
+<text x="989.0" y="249" text-anchor="middle" font-size="9" font-weight="700" fill="#B03A4E">C5.3</text>
+<text x="989.0" y="264" text-anchor="middle" font-size="9.8" fill="#1F2933">Enrolment UI</text>
+<rect x="1112" y="122" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#20707A" stroke-width="1.1"/>
+<text x="1203.0" y="139" text-anchor="middle" font-size="9" font-weight="700" fill="#20707A">C6.1</text>
+<text x="1203.0" y="154" text-anchor="middle" font-size="9.8" fill="#1F2933">Consent Module</text>
+<rect x="1112" y="177" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#20707A" stroke-width="1.1"/>
+<text x="1203.0" y="194" text-anchor="middle" font-size="9" font-weight="700" fill="#20707A">C6.2</text>
+<text x="1203.0" y="209" text-anchor="middle" font-size="9.8" fill="#1F2933">Enrolment Module</text>
+<rect x="1112" y="232" width="182" height="44" rx="6" fill="#FFFFFF" stroke="#20707A" stroke-width="1.1"/>
+<text x="1203.0" y="249" text-anchor="middle" font-size="9" font-weight="700" fill="#20707A">C6.3</text>
+<text x="1203.0" y="264" text-anchor="middle" font-size="9.8" fill="#1F2933">Erasure Module</text>
+<text x="133.0" y="761" text-anchor="middle" font-size="9.5" fill="#3E4C59">keluar 3 · masuk 1 link</text>
+<text x="347.0" y="596" text-anchor="middle" font-size="9.5" fill="#3E4C59">keluar 6 · masuk 5 link</text>
+<text x="561.0" y="376" text-anchor="middle" font-size="9.5" fill="#3E4C59">keluar 0 · masuk 4 link</text>
+<text x="775.0" y="376" text-anchor="middle" font-size="9.5" fill="#3E4C59">keluar 1 · masuk 4 link</text>
+<text x="989.0" y="321" text-anchor="middle" font-size="9.5" fill="#3E4C59">keluar 3 · masuk 0 link</text>
+<text x="1203.0" y="321" text-anchor="middle" font-size="9.5" fill="#3E4C59">keluar 2 · masuk 1 link</text>
+<text x="34" y="807" font-size="9.5" fill="#616E7C">Kotak berwarna = subsistem; kotak putih = komponen. Arah dan nama antarmuka tiap tautan ada pada tabel N2 (S8) dan pada SiHADIR_Architecture.slx.</text>
+</svg>

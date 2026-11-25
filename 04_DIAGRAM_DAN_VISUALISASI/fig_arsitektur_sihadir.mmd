@@ -1,0 +1,68 @@
+flowchart LR
+  subgraph S1["S1 · Edge Terminal"]
+    C1_1["C1.1 Camera"]
+    C1_2["C1.2 Compute Unit"]
+    C1_3["C1.3 Terminal Application"]
+    C1_4["C1.4 Face Detection & Recognition"]
+    C1_5["C1.5 Liveness Engine"]
+    C1_6["C1.6 Local Record Store"]
+    C1_7["C1.7 Roster & Template Cache"]
+    C1_8["C1.8 Display"]
+    C1_9["C1.9 Sync Agent"]
+    C1_10["C1.10 Time Client"]
+    C1_11["C1.11 Readiness Monitor"]
+  end
+  subgraph S2["S2 · Backend Services"]
+    C2_1["C2.1 API Gateway"]
+    C2_2["C2.2 Session Service"]
+    C2_3["C2.3 Attendance Service"]
+    C2_4["C2.4 Rule Engine"]
+    C2_5["C2.5 Recap Service"]
+    C2_6["C2.6 Notification Service"]
+    C2_7["C2.7 Audit Service"]
+    C2_8["C2.8 Access Control Service"]
+  end
+  subgraph S3["S3 · Integration & Comms"]
+    C3_1["C3.1 SIAKAD Connector"]
+    C3_2["C3.2 Notification Connector"]
+    C3_3["C3.3 SSO Connector"]
+    C3_4["C3.4 NTP Connector"]
+  end
+  subgraph S4["S4 · Data Management"]
+    C4_1["C4.1 Template DB"]
+    C4_2["C4.2 Attendance DB"]
+    C4_3["C4.3 Audit Store"]
+    C4_4["C4.4 Consent Registry"]
+  end
+  subgraph S5["S5 · User Interfaces"]
+    C5_1["C5.1 Lecturer UI"]
+    C5_2["C5.2 Admin Console"]
+    C5_3["C5.3 Enrolment UI"]
+  end
+  subgraph S6["S6 · Identity & Privacy"]
+    C6_1["C6.1 Consent Module"]
+    C6_2["C6.2 Enrolment Module"]
+    C6_3["C6.3 Erasure Module"]
+  end
+  C1_1 -->|IF-I1| C1_3
+  C1_4 -->|IF-I3| C1_3
+  C1_5 --> C1_3
+  C1_11 --> C1_3
+  C1_3 -->|IF-I4| C1_6
+  C1_3 -->|IF-I4| C1_8
+  C1_6 -->|IF-I4| C1_9
+  C1_3 -->|IF-T2B| C2_1
+  C1_9 -->|IF-T2B| C2_1
+  C1_10 -->|IF-T2NTP| C3_4
+  C2_2 -->|IF-I9| C1_7
+  C2_3 -->|IF-I5| C4_2
+  C4_2 -->|IF-I6| C2_5
+  C2_5 -->|IF-B2S| C3_1
+  C2_6 -->|IF-B2GW| C3_2
+  C2_8 -->|IF-B2SSO| C3_3
+  C2_7 -->|IF-I7| C4_3
+  C5_1 -->|IF-UI2B| C2_1
+  C5_2 -->|IF-UI2B| C2_1
+  C6_1 -->|IF-I10| C4_4
+  C6_3 --> C4_1
+  C5_3 -->|IF-I10| C6_1

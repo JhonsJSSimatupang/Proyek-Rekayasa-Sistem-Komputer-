@@ -1,0 +1,28 @@
+﻿# Backup lokal
+99_BACKUP_BEFORE_REPAIR/
+
+# MATLAB dan Simulink temporary files
+slprj/
+sccprj/
+*.asv
+*.autosave
+*.slxc
+*.m~
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*.orig
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Editor dan sistem operasi
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Dokumen laporan - tidak diunggah ke GitHub
+01_DOKUMEN_UTAMA/
