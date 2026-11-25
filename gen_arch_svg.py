@@ -5,9 +5,9 @@ Reads the MATLAB spec (single source of truth) and writes:
   fig_arsitektur_sihadir.svg   - subsystem/component decomposition, self-contained SVG
   fig_arsitektur_sihadir.mmd   - the same content plus every link, as Mermaid
 
-Why the figure carries no arrows: with 22 links over six columns the curved
+Why the figure carries no arrows: with 27 links over six columns the curved
 routes crossed the component boxes and were unreadable. The figure therefore
-shows the decomposition (what exists and where it lives), while the 22 links
+shows the decomposition (what exists and where it lives), while the 27 links
 and 16 interfaces are drawn in the System Composer model and tabulated in S8.
 Each subsystem column carries its boundary-port and link counts so the figure
 still says how heavily each subsystem is coupled.
@@ -20,7 +20,12 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SPEC = HERE / "sihadir_arch_spec.m"
+SPEC = HERE / "03_MODEL_MATLAB" / "sihadir_arch_spec.m"
+if not SPEC.exists():
+    SPEC = HERE / "sihadir_arch_spec.m"
+OUT_DIR = HERE / "04_DIAGRAM_DAN_VISUALISASI"
+if not OUT_DIR.exists():
+    OUT_DIR = HERE
 
 COLORS = {
     "S1": ("#E8F1FB", "#2F6FB2"),
@@ -181,9 +186,9 @@ def main():
         sys.exit(f"parse gagal: subs={len(subs)} comps={len(comps)} links={len(links)}")
 
     nodes, cols, w, h = layout(subs, comps)
-    svg_path = HERE / "fig_arsitektur_sihadir.svg"
+    svg_path = OUT_DIR / "fig_arsitektur_sihadir.svg"
     svg_path.write_text(build_svg(subs, comps, links, nodes, cols, w, h), encoding="utf-8")
-    (HERE / "fig_arsitektur_sihadir.mmd").write_text(
+    (OUT_DIR / "fig_arsitektur_sihadir.mmd").write_text(
         build_mermaid(subs, comps, links), encoding="utf-8")
 
     print(f"subsistem : {len(subs)}")

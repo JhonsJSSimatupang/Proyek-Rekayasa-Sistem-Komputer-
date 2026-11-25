@@ -50,24 +50,29 @@ Arsitektur SiHADIR terdiri dari enam subsistem utama:
 Proyek RSK-System Composer/
 │
 ├── 01_DOKUMEN_UTAMA/
-│   └── Dokumen utama dan spesifikasi sistem
+│   ├── RSK_FINAL_KelompokJhons_SRS.pdf
+│   └── SiHADIR_Final_SRS_Architecture.pdf
 │
 ├── 02_DOKUMENTASI_SUMBER/
-│   └── Referensi dan dokumentasi pendukung
+│   ├── S1_Audit_PRJ2_dan_ChangeLog.md .. S10_Model_MATLAB.md
+│   └── RTM_SiHADIR.csv
 │
 ├── 03_MODEL_MATLAB/
 │   ├── SiHADIR_Architecture.slx
 │   ├── SiHADIR_Architecture_Interfaces.sldd
-│   └── File MATLAB pendukung
+│   ├── sihadir_arch_spec.m
+│   └── Skrip pembangun, pemeriksa, tata letak, dan ekspor model (.m)
 │
 ├── 04_DIAGRAM_DAN_VISUALISASI/
-│   └── Diagram dan hasil visualisasi arsitektur
+│   ├── SiHADIR_root.png & SiHADIR_S1..S6.png (ekspor kanvas System Composer)
+│   ├── fig_arsitektur_sihadir.svg / .png / .mmd
+│   └── fig_alur_presensi.svg / .png
 │
 ├── 05_BUKTI_DAN_PENDUKUNG/
-│   └── Bukti pengujian dan dokumentasi pendukung
-│
-├── 99_BACKUP_BEFORE_REPAIR/
-│   └── Salinan model sebelum proses perbaikan
+│   ├── S10_evidence.txt (transkrip verifikasi MATLAB 15/15 & 9/9 LULUS)
+│   ├── check_consistency.py (verifikasi otomatis RTM 36 requirement LULUS)
+│   ├── build_report.py (perakit laporan lengkap)
+│   └── SiHADIR_MATLAB_Online.zip
 │
 ├── gen_arch_svg.py
 ├── gen_flow_svg.py
@@ -85,11 +90,12 @@ Ringkasan kondisi model berdasarkan pemeriksaan terakhir:
 | Subsystems           |      6 |
 | Components           |     33 |
 | Interfaces           |     16 |
-| Ports                |     72 |
-| Connectors / Links   |     27 |
+| Ports (Leaf / Boundary) | 72 / 30 |
+| Architecture Links   |     27 |
+| Connectors (Root / Sub) | 15 / 42 |
 | Function Allocations |     24 |
 
-_Angka tersebut merupakan hasil audit model saat ini, bukan pernyataan bahwa seluruh koneksi dan interface sudah tervalidasi._
+_Seluruh elemen di atas telah diverifikasi otomatis melalui `verify_architecture_spec.m` (15/15 LULUS), `verify_built_model.m` (9/9 LULUS), dan `check_consistency.py` (0 temuan pada 36 requirement)._
 
 ## 🔗 Traceability
 
@@ -115,44 +121,48 @@ Components & Interfaces
        ▼
 Verification
 ```
-## 🔍 Development Status
+## 🔍 Verification & Development Status
 
-Proyek masih berada dalam tahap pemeriksaan dan penyempurnaan arsitektur.
+Seluruh rantai rekayasa dan model arsitektur telah melewati verifikasi otomatis (**LULUS 100%**):
 
-Area yang menjadi perhatian:
-
-- Validasi koneksi antarkomponen.
-- Konsistensi port dan interface.
-- Validasi function-to-component allocation.
-- Pemeriksaan keterlacakan kebutuhan.
-- Penyelarasan model dengan dokumen dan diagram.
-- Verifikasi dan acceptance criteria.
+- **Konsistensi RTM & Traceability (`check_consistency.py`)**: **LULUS (0 temuan)** — 36 requirement (15 FR, 6 PRF, 6 IF, 5 SEC, 4 OPS), 13/13 Stakeholder Needs, 12/12 Use Case, 24/24 fungsi leaf (+2 agregat), 33/33 komponen, 16 ICD + `internal`.
+- **Spesifikasi Arsitektur (`verify_architecture_spec.m`)**: **LULUS (15/15 pemeriksaan C1–C15)** — keunikan ID, konsistensi arah & interface pada 72 port dan 27 link, serta kelengkapan alokasi 24 fungsi terhadap RTM.
+- **Model MATLAB System Composer (`verify_built_model.m`)**: **LULUS (9/9 pemeriksaan M1–M9)** — 6 subsistem, 33 komponen, 72 port komponen + 30 port batas, 16 interface di `.sldd`, dan 57 garis konektor (15 di root + 42 di dalam subsistem).
 
 ## 📦 Project Deliverables
 
 Target keluaran proyek meliputi:
 
-- System Requirement Specification (SRS)
-- Context Diagram
-- Use Case Diagram
-- Sequence Diagrams
-- Functional Architecture
-- Physical Architecture
-- Function-to-Component Allocation
-- Requirements Traceability Matrix (RTM)
-- Verification and Acceptance Criteria
-- MATLAB System Composer Model
+- Final System Requirement Specification & Architecture Report (`01_DOKUMEN_UTAMA/RSK_FINAL_KelompokJhons_SRS.pdf`)
+- Context Diagram, Use Case Diagram, & 4 Sequence Diagrams (`S2`, `S4`)
+- Functional Architecture — IDEF0 & Functional Flow Diagram (`S6`, `fig_alur_presensi.svg/.png`)
+- Physical Architecture & Decomposition Diagram (`S7`, `fig_arsitektur_sihadir.svg/.png`)
+- Function-to-Component Allocation, N2 Matrix, ICD, & SPOF Analysis (`S8`)
+- Requirements Traceability Matrix (`02_DOKUMENTASI_SUMBER/RTM_SiHADIR.csv` & `S9`)
+- Verification, Acceptance Criteria, Risk Register, & Change Impact Analysis (`S5`, `S9`)
+- MATLAB System Composer Model & Interface Dictionary (`03_MODEL_MATLAB/SiHADIR_Architecture.slx` & `.sldd`)
+
+## 👥 Anggota Kelompok (Kelompok Jhons — Kelas B)
+
+| No | Nama Mahasiswa | NIM |
+| :-: | :--- | :--- |
+| 1 | Jhons Janner Samuel S | 245150301111009 |
+| 2 | Muhamad Al Fatih | 245150301111024 |
+| 3 | Azzam Galen Crosdiyanto | 245150307111044 |
+| 4 | Muhammad Mushlih Fajr | 245150307111047 |
+| 5 | Keirio Omar Attallah | 245150307111061 |
 
 ## 👨‍💻 Project Information
 
 | Informasi       | Keterangan                            |
 | --------------- | ------------------------------------- |
-| Project         | SiHADIR                               |
-| Domain          | System Engineering                    |
-| Modeling Tool   | MATLAB System Composer                |
-| Supporting Tool | Python                                |
-| Repository      | GitHub                                |
-| Project Stage   | Architecture Development & Validation |
+| Project         | SiHADIR (Sistem Informasi Kehadiran Digital Berbasis Wajah) |
+| Mata Kuliah     | CCE61317 Rekayasa Sistem Komputer (RSK) — Kelas B |
+| Dosen Pengampu  | Sabriansyah Rizqika Akbar, S.T., M.Eng., Ph.D. |
+| Institusi       | Program Studi Teknik Komputer, FILKOM Universitas Brawijaya |
+| Modeling Tool   | MATLAB System Composer (R2026b)       |
+| Supporting Tool | Python 3 (Verifikasi RTM & Visualisasi SVG/HTML/PDF) |
+| Project Stage   | Final SRS & Verified System Architecture (v1.0) |
 
 ---
 
@@ -161,4 +171,3 @@ Target keluaran proyek meliputi:
   
   *Designed through System Engineering and Model-Based Architecture.*
 </p>
-Get-Item README.md

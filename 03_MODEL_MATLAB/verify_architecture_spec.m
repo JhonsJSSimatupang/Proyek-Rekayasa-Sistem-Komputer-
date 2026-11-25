@@ -13,7 +13,11 @@ function report = verify_architecture_spec(spec, rtmFile)
 %   See also SIHADIR_ARCH_SPEC, BUILD_SIHADIR_ARCHITECTURE.
 
 if nargin < 2 || isempty(rtmFile)
-    rtmFile = fullfile(fileparts(mfilename('fullpath')), 'RTM_SiHADIR.csv');
+    hereDir = fileparts(mfilename('fullpath'));
+    rtmFile = fullfile(hereDir, 'RTM_SiHADIR.csv');
+    if ~exist(rtmFile, 'file')
+        rtmFile = fullfile(hereDir, '..', '02_DOKUMENTASI_SUMBER', 'RTM_SiHADIR.csv');
+    end
 end
 
 checks = struct('id', {}, 'desc', {}, 'pass', {}, 'detail', {});

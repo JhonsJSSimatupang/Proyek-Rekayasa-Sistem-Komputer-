@@ -24,5 +24,6 @@ __pycache__/
 Thumbs.db
 .DS_Store
 
-# Dokumen laporan - tidak diunggah ke GitHub
-01_DOKUMEN_UTAMA/
+# Build intermediate
+_build/
+

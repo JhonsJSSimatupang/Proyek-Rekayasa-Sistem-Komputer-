@@ -12,8 +12,13 @@ import csv
 import re
 import sys
 from collections import Counter
+from pathlib import Path
 
-RTM = sys.argv[1] if len(sys.argv) > 1 else "RTM_SiHADIR.csv"
+HERE = Path(__file__).resolve().parent
+DEFAULT_RTM = HERE / "RTM_SiHADIR.csv"
+if not DEFAULT_RTM.exists():
+    DEFAULT_RTM = HERE.parent / "02_DOKUMENTASI_SUMBER" / "RTM_SiHADIR.csv"
+RTM = sys.argv[1] if len(sys.argv) > 1 else str(DEFAULT_RTM)
 
 # --- ID spaces (single source of truth) --------------------------------
 SN = [f"SN-{i:02d}" for i in range(1, 14)]                    # 13 needs

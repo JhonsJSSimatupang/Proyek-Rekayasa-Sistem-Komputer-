@@ -8,9 +8,9 @@ jadi model yang kamu buat akan sama persis dengan yang diperiksa `verify_archite
 |---|---|
 | Subsistem (level 1) | 6 |
 | Komponen (daun) | 33 |
-| Port pada komponen | 64 |
+| Port pada komponen | 72 |
 | Interface (data interface di dictionary) | 16 |
-| Link / konektor | 22 |
+| Link / konektor | 27 |
 | Alokasi fungsi → komponen | 24 |
 
 ---
@@ -170,7 +170,7 @@ Buka `S1` (double-click) → **Add Component** sesuai jumlah, rename. Ulangi unt
 
 ---
 
-## 7. Langkah 5 — Buat 64 port
+## 7. Langkah 5 — Buat 72 port
 
 Cara: klik komponen → **Add Port** (atau Ctrl+P) → rename → lalu di **Property Inspector**
 set **Direction** (Input/Output) dan **Interface** (pilih dari dictionary).
@@ -187,19 +187,27 @@ set **Direction** (Input/Output) dan **Interface** (pilih dari dictionary).
 | C1.3 | matchIn | Input | IF-I3 |
 | C1.3 | liveIn | Input | *(kosong)* |
 | C1.3 | readyIn | Input | *(kosong)* |
+| C1.3 | timeIn | Input | *(kosong)* |
+| C1.3 | frameOut | Output | IF-I2 |
+| C1.3 | liveFrameOut | Output | IF-I1 |
 | C1.3 | recordOut | Output | IF-I4 |
 | C1.3 | apiOut | Output | IF-T2B |
 | C1.3 | displayOut | Output | IF-I4 |
 | C1.4 | frameIn | Input | IF-I2 |
+| C1.4 | tplIn | Input | IF-I9 |
 | C1.4 | matchOut | Output | IF-I3 |
+| C1.5 | frameIn | Input | IF-I1 |
 | C1.5 | liveOut | Output | *(kosong)* |
 | C1.6 | storeIn | Input | IF-I4 |
 | C1.6 | storeOut | Output | IF-I4 |
 | C1.7 | rosterIn | Input | IF-I9 |
+| C1.7 | tplOut | Output | IF-I9 |
 | C1.8 | dispIn | Input | IF-I4 |
 | C1.9 | syncIn | Input | IF-I4 |
 | C1.9 | syncOut | Output | IF-T2B |
 | C1.10 | ntpOut | Output | IF-T2NTP |
+| C1.10 | timeOut | Output | *(kosong)* |
+| C1.11 | statusIn | Input | *(kosong)* |
 | C1.11 | readyOut | Output | *(kosong)* |
 
 ### S2 — Backend Services
@@ -271,20 +279,20 @@ set **Direction** (Input/Output) dan **Interface** (pilih dari dictionary).
 | C6.3 | eraseOut | Output | IF-UI2B |
 | C6.3 | tplDelOut | Output | *(kosong)* |
 
-> Setelah selesai: total port di 33 komponen harus **64**. Hitung dengan cepat:
+> Setelah selesai: total port di 33 komponen harus **72**. Hitung dengan cepat:
 > `numel(SiHADIR_Architecture.Architecture.Components)` untuk subsistem,
 > lalu jumlahkan `Ports` tiap komponen daun.
 
 ---
 
-## 8. Langkah 6 — Sambung 22 link
+## 8. Langkah 6 — Sambung 27 link
 
 Cara: tarik garis dari port Output ke port Input. Untuk link **antar subsistem**,
 tarik dari port di dalam S1 langsung ke port di dalam S2 — System Composer otomatis
 membuatkan port batas di kedua subsistem (inilah sebabnya jumlah port di level
-subsistem bisa lebih dari 64; 64 hanya menghitung port komponen daun).
+subsistem bisa lebih dari 72; 72 hanya menghitung port komponen daun).
 
-### 8.1 Tujuh link di dalam S1 (langsung, tanpa port batas)
+### 8.1 Dua belas link di dalam S1 (langsung, tanpa port batas)
 
 | # | Dari | Ke | Interface |
 |---|---|---|---|
@@ -295,6 +303,11 @@ subsistem bisa lebih dari 64; 64 hanya menghitung port komponen daun).
 | 5 | C1.3.recordOut | C1.6.storeIn | IF-I4 |
 | 6 | C1.3.displayOut | C1.8.dispIn | IF-I4 |
 | 7 | C1.6.storeOut | C1.9.syncIn | IF-I4 |
+| 23 | C1.3.frameOut | C1.4.frameIn | IF-I2 |
+| 24 | C1.3.liveFrameOut | C1.5.frameIn | IF-I1 |
+| 25 | C1.7.tplOut | C1.4.tplIn | IF-I9 |
+| 26 | C1.10.timeOut | C1.3.timeIn | *(kosong)* |
+| 27 | C1.2.statusOut | C1.11.statusIn | *(kosong)* |
 
 ### 8.2 Lima belas link antar subsistem
 
@@ -316,9 +329,9 @@ subsistem bisa lebih dari 64; 64 hanya menghitung port komponen daun).
 | 21 | C6.3.tplDelOut | C4.1.tplIn | *(kosong)* |
 | 22 | C5.3.consentOut | C6.1.consentIn | IF-I10 |
 
-### 8.3 Kenapa ada 20 port yang tidak disambung
+### 8.3 Kenapa ada 18 port yang tidak disambung
 
-64 port − 44 ujung konektor = **20 port** sengaja dibiarkan terbuka. Itu **titik batas sistem**
+72 port − 54 ujung konektor = **18 port** sengaja dibiarkan terbuka. Itu **titik batas sistem**
 (tempat aktor/ sistem luar menempel), misalnya: kamera fisik, layar, SIAKAD, WhatsApp
 Gateway, SSO UB, NTP server, mahasiswa, admin. Ini bukan kelalaian — di Bab 8 (N2/ICD)
 port itulah yang dipakai untuk 6 ICD eksternal.
@@ -373,7 +386,7 @@ for k = 1:numel(a.Components)
         sum(arrayfun(@(c) numel(c.Ports), kids)));
     n = n + sum(arrayfun(@(c) numel(c.Ports), kids));
 end
-fprintf('total port daun = %d\n', n)   % harus 64
+fprintf('total port daun = %d\n', n)   % harus 72
 ```
 
 Lalu jalankan pemeriksa yang sudah ada:
@@ -404,9 +417,9 @@ verify_built_model        % 9 pemeriksaan M1..M9, target LULUS
 - [ ] Model tersimpan sebagai `SiHADIR_Architecture.slx` di folder `FINAL`
 - [ ] 6 subsistem, nama persis `S1 Edge Terminal` … `S6 Identity & Privacy`
 - [ ] 33 komponen daun, tidak ada yang tertinggal di level 1
-- [ ] 64 port pada komponen daun
+- [ ] 72 port pada komponen daun
 - [ ] 16 interface di dictionary, dictionary tertaut ke model
-- [ ] 22 konektor
+- [ ] 27 link (57 konektor garis)
 - [ ] 24 fungsi tercatat pada komponen yang benar
 - [ ] `verify_built_model` → **LULUS (9 pemeriksaan)**
 - [ ] Screenshot kanvas penuh untuk Lampiran A laporan
@@ -415,7 +428,7 @@ verify_built_model        % 9 pemeriksaan M1..M9, target LULUS
 
 - **ASSUMPTION-31**: tipe data implementasi pada 5.2 dipilih agar model bisa dibangun;
   tipe logis di S7/S8 tetap dipakai di dokumen requirement.
-- **ASSUMPTION-32**: 20 port yang tidak tersambung adalah titik batas sistem untuk
+- **ASSUMPTION-32**: 18 port yang tidak tersambung adalah titik batas sistem untuk
   6 ICD eksternal di S8, bukan port mati.
 - **ASSUMPTION-33**: alokasi fungsi dicatat di Description komponen; allocation set
   formal hanya dibuat bila dosen memintanya.

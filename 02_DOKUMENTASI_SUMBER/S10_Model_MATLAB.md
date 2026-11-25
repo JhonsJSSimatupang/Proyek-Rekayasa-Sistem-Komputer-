@@ -32,10 +32,10 @@ MATLAB baru tanpa `addpath` manual.
 
 | Berkas | Peran | Butuh System Composer? |
 |---|---|---|
-| `sihadir_arch_spec.m` | **satu sumber kebenaran**: 6 subsistem, 33 komponen, 64 port, 16 interface, 22 link, 24 alokasi fungsi | tidak |
+| `sihadir_arch_spec.m` | **satu sumber kebenaran**: 6 subsistem, 33 komponen, 72 port, 16 interface, 27 link, 24 alokasi fungsi | tidak |
 | `verify_architecture_spec.m` | 15 pemeriksaan konsistensi + silang ke `RTM_SiHADIR.csv` | tidak |
 | `build_sihadir_architecture.m` | membangun `SiHADIR_Architecture.slx` dari spec | ya |
-| `wire_sihadir_model.m` | menggambar 52 garis konektor pada model | ya |
+| `wire_sihadir_model.m` | menggambar 57 garis konektor pada model | ya |
 | `layout_sihadir_model.m` | menata letak blok agar diagram terbaca | ya |
 | `annotate_sihadir_model.m` | menulis ID, jenis, dan fungsi tiap komponen ke properti blok | ya |
 | `render_sihadir_model.m` | mengekspor PNG root + 6 subsistem | ya |
@@ -57,7 +57,7 @@ SiHADIR_Architecture
 └── S6 Identity & Privacy   C6.1 .. C6.3    ( 3 komponen, 3 port batas)
 
 SiHADIR_Architecture_Interfaces.sldd   16 interface
-22 link  →  52 garis  →  52 konektor  (15 di root, 37 di dalam subsistem)
+27 link  →  57 garis  →  57 konektor  (15 di root, 42 di dalam subsistem)
 ```
 
 Aturan penamaan yang dipakai model:
@@ -75,23 +75,23 @@ Aturan penamaan yang dipakai model:
 
 ```
 === SiHADIR architecture check ===
-komponen 33 | port 64 | interface 16 | link 22 | alokasi 24 | 24 fungsi RTM
+komponen 33 | port 72 | interface 16 | link 27 | alokasi 24 | 24 fungsi RTM
 ID   Pemeriksaan                                          Hasil Detail
 C1   ID komponen unik                                     PASS  33 komponen
-C2   Pasangan komponen/port unik                          PASS  64 port
+C2   Pasangan komponen/port unik                          PASS  72 port
 C3   Port menempel pada komponen yang ada                 PASS  0 pelanggaran
-C4   Interface port terdeklarasi                          PASS  -
-C5   Setiap komponen punya minimal satu port              PASS  -
-C6   Setiap subsistem berisi komponen                     PASS  -
-C7   Ujung link menunjuk port yang ada                    PASS  -
+C4   Interface port terdeklarasi                          PASS  tidak dikenal: 
+C5   Setiap komponen punya minimal satu port              PASS  tanpa port: 
+C6   Setiap subsistem berisi komponen                     PASS  kosong: 
+C7   Ujung link menunjuk port yang ada                    PASS  hilang: 
 C8   Arah link out -> in                                  PASS  0 salah arah
 C9   Interface link konsisten dengan port                 PASS  0 tidak konsisten
-C10  Alokasi fungsi menunjuk komponen yang ada            PASS  -
-C11  Fungsi yang dimiliki komponen teralokasi             PASS  -
+C10  Alokasi fungsi menunjuk komponen yang ada            PASS  tidak dikenal: 
+C11  Fungsi yang dimiliki komponen teralokasi             PASS  belum: 
 C12  Komponen tujuan benar-benar memiliki fungsi          PASS  0 menyimpang
-C13  Interface terpakai (peringatan)                      PASS  -
-C14  Semua fungsi di RTM punya komponen                   PASS  0 dari 24
-C15  Interface pada link terdeklarasi                     PASS  22 link
+C13  Interface terpakai (peringatan)                      PASS  belum dipakai: 
+C14  Semua fungsi di RTM punya komponen                   PASS  0 dari 24 fungsi belum dialokasikan
+C15  Interface pada link terdeklarasi                     PASS  27 link
 
 HASIL: LULUS (15 pemeriksaan)
 ```
@@ -110,15 +110,15 @@ sudah diperbaiki:
 
 ```
 === SiHADIR built-model check ===
-subsistem 6 | komponen 33 | port 64 | konektor 37
+subsistem 6 | komponen 33 | port 72 | konektor 42
 M1   Model dapat dibuka                         PASS  SiHADIR_Architecture
 M2   Jumlah subsistem = 6                       PASS  6 subsistem
 M3   Jumlah komponen = 33                       PASS  model 33, spec 33
-M4   Jumlah port = 64                           PASS  model 64, spec 64
+M4   Jumlah port = spec                         PASS  model 72, spec 72
 M5   Semua komponen spec ada di model           PASS  0 hilang
 M6   Arah port sesuai spec                      PASS  0 menyimpang
 M7   Interface port terpasang sesuai spec       PASS  0 menyimpang
-M8   Konektor terbentuk (>=22)                  PASS  37 konektor
+M8   Konektor terbentuk (>=22)                  PASS  42 konektor
 M9   Dictionary berisi 16 interface             PASS  16 interface
 
 HASIL MODEL: LULUS (9 pemeriksaan)
@@ -127,23 +127,23 @@ HASIL MODEL: LULUS (9 pemeriksaan)
 Bukti struktur dibaca ulang dari berkas `.slx`, bukan dari objek di memori:
 
 ```
-Blok total          : 133
-Garis total         : 52
+Blok total          : 141
+Garis total         : 57
 Konektor di root    : 15
-  S1 Edge Terminal         port  4 | konektor 11 | komponen 11
+  S1 Edge Terminal         port  4 | konektor 16 | komponen 11
   S2 Backend Services      port 11 | konektor 11 | komponen  8
   S3 Integration & Comms   port  4 | konektor  4 | komponen  4
   S4 Data Management       port  5 | konektor  5 | komponen  4
   S5 User Interfaces       port  3 | konektor  3 | komponen  3
   S6 Identity & Privacy    port  3 | konektor  3 | komponen  3
-Konektor di subsistem: 37
+Konektor di subsistem: 42
 ```
 
-Angka-angka itu cocok sempurna dengan rancangan: 22 link terdiri atas 7 link
+Angka-angka itu cocok sempurna dengan rancangan: 27 link terdiri atas 12 link
 **di dalam** subsistem (1 garis masing-masing) dan 15 link **antar** subsistem
 (3 garis masing-masing: komponen → port batas, kabel di root, port batas →
-komponen). Maka 7 + 15 × 3 = **52 garis**, dan 15 konektor di root + 37 di dalam
-subsistem = **52 konektor**.
+komponen). Maka 12 + 15 × 3 = **57 garis**, dan 15 konektor di root + 42 di dalam
+subsistem = **57 konektor**.
 
 ## 10.6 Dua cacat lingkungan dan jalan keluarnya
 
@@ -195,14 +195,14 @@ spec, sehingga angkanya tidak dapat menyimpang:
 
 ## 10.8 Port yang tidak tersambung
 
-Dari 64 port, 44 tersambung oleh 22 link dan 20 tidak. Ini disengaja dan
+Dari 72 port, 54 tersambung oleh 27 link dan 18 tidak. Ini disengaja dan
 dikelompokkan menjadi tiga:
 
 | Kelompok | Contoh | Alasan tidak disambung |
 |---|---|---|
 | Batas sistem, keluar | `C3.1.recapOut`, `C3.2.notifyOut`, `C3.3.authOut`, `C3.4.ntpOut` | pasangannya (SIAKAD, gateway notifikasi, SSO, server NTP) berada di luar batas SiHADIR |
-| Titik pantau / keluaran | `C1.2.statusOut`, `C2.4.statusOut`, `C6.3.eraseOut` | keluaran pemantauan yang dikonsumsi manusia/alat, bukan komponen lain |
-| Port masukan yang pasangannya di luar lingkup | `C1.4.frameIn`, `C5.1.viewIn`, `C5.2.alertIn`, `C6.2.frameIn` | pada S7 pasangannya belum dimodelkan sebagai komponen; dicatat sebagai pekerjaan lanjut, bukan disembunyikan |
+| Titik pantau / keluaran | `C2.4.statusOut`, `C6.3.eraseOut`, `C2.1.apiOut`, `C2.2.sessionOut`, `C2.8.tokenOut` | keluaran pemantauan/status yang dikonsumsi layanan internal atau operator |
+| Port masukan/keluaran yang pasangannya di luar lingkup | `C5.1.viewIn`, `C5.2.alertIn`, `C6.2.frameIn`, `C5.3.enrolOut`, `C6.2.tplOut` | pada S7 pasangannya mengarah ke alur sekunder yang dicatat sebagai antarmuka disediakan sistem |
 
 Port tak tersambung pada model arsitektur adalah hal biasa: ia menyatakan
 antarmuka yang **disediakan** sistem, bukan cacat gambar. Yang penting adalah
@@ -211,7 +211,7 @@ setiap port tetap memakai interface yang terdeklarasi, dan itu diperiksa M7.
 ## 10.9 Cara menjalankan
 
 ```matlab
-cd('C:\Users\Jhons Janner Samuel\Downloads\RSK\FINAL')
+cd('03_MODEL_MATLAB')
 run_sihadir_checks          % seluruh rantai + tulis S10_evidence.txt
 ```
 
@@ -220,7 +220,7 @@ Atau satu per satu:
 ```matlab
 s = sihadir_arch_spec();          % muat definisi
 r = verify_architecture_spec(s);  % 15 pemeriksaan  -> harus LULUS
-build_sihadir_architecture();     % bangun .slx + .sldd + gambar 52 garis
+build_sihadir_architecture();     % bangun .slx + .sldd + gambar 57 garis
 verify_built_model();             % 9 pemeriksaan   -> harus LULUS
 layout_sihadir_model();           % tata letak 3 x 2
 annotate_sihadir_model();         % tulis ID/jenis/fungsi ke properti blok
@@ -236,8 +236,8 @@ di-update, jalankan sekali `fix_systemcomposer_path` untuk memulihkan path.
 |---|---|
 | S6 fungsi F1.1..F12 | `spec.allocations`, ditulis ke `Description` tiap blok |
 | S7 komponen C1.1..C6.3 | 33 blok subsistem di dalam 6 subsistem |
-| S7 port | 64 port komponen + 30 port batas |
-| S8 N2/ICD | `spec.links` + `spec.interfaces`; 52 garis, 16 interface di `.sldd` |
+| S7 port | 72 port komponen + 30 port batas |
+| S8 N2/ICD | `spec.links` + `spec.interfaces`; 57 garis, 16 interface di `.sldd` |
 | S9 RTM | kolom `Component` di `RTM_SiHADIR.csv`, dicocokkan pemeriksaan C14 |
 
 ## 10.11 Batasan yang harus disebut
@@ -245,8 +245,7 @@ di-update, jalankan sekali `fix_systemcomposer_path` untuk memulihkan path.
 1. Alokasi fungsi → komponen tersimpan sebagai data di spec dan sebagai
    `Description` blok, **belum** sebagai *allocation link* System Composer,
    karena itu memerlukan Requirements Toolbox yang tidak berlisensi di mesin ini.
-2. 20 port tidak tersambung (lihat 10.8); 4 di antaranya masukan yang
-   pasangannya belum dimodelkan.
+2. 18 port tidak tersambung (lihat 10.8); menyatakan antarmuka batas sistem dan titik pantau.
 3. Konektor dibuat lewat API garis (`add_line`), bukan `connect`, karena
    `connect` pada instalasi ini tidak menulis apa pun (lihat 10.6a).
 

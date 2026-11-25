@@ -8,6 +8,9 @@ figure and the architecture figure describe the same system.
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+OUT_DIR = HERE / "04_DIAGRAM_DAN_VISUALISASI"
+if not OUT_DIR.exists():
+    OUT_DIR = HERE
 
 LANES = [
     ("Dosen", "C5.1 / C5.2", "#FDECEF", "#B03A4E"),
@@ -122,7 +125,7 @@ def main():
                f'Kotak putus-putus = titik keputusan (liveness). Panah = urutan langkah.</text>')
     out.append("</svg>")
 
-    path = HERE / "fig_alur_presensi.svg"
+    path = OUT_DIR / "fig_alur_presensi.svg"
     path.write_text("\n".join(out), encoding="utf-8")
     print(f"langkah : {len(STEPS)}")
     print(f"lane    : {len(LANES)}")

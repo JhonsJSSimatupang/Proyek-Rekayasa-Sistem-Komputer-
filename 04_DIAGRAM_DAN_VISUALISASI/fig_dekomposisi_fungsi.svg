@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="650" viewBox="0 0 1160 650" font-family="Segoe UI, Arial, sans-serif">
+<rect width="1160" height="650" fill="#FFFFFF"/>
+<text x="580.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#12395B">SiHADIR — Dekomposisi Fungsional (A0 → F1..F12 → 24 Fungsi Leaf)</text>
+<rect x="410.0" y="42" width="340" height="36" rx="8" fill="#12395B" stroke="#0D2840" stroke-width="1.5"/>
+<text x="580.0" y="65" text-anchor="middle" font-size="12.5" font-weight="700" fill="#FFFFFF">A0 · Verify Classroom Attendance</text>
+<line x1="110.0" y1="90" x2="110.0" y2="104" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="20" y="104" width="180" height="144" rx="8" fill="#E8F1FB" stroke="#2F6FB2" stroke-width="1.5"/>
+<text x="110.0" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#2F6FB2">F1</text>
+<text x="110.0" y="137" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Manage Session</text>
+<rect x="28" y="148" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="110.0" y="163" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">F1.1</text>
+<text x="110.0" y="177" text-anchor="middle" font-size="8.8" fill="#1F2933">Open Session</text>
+<rect x="28" y="192" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="110.0" y="207" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">F1.2</text>
+<text x="110.0" y="221" text-anchor="middle" font-size="8.8" fill="#1F2933">Close Session</text>
+<line x1="300.0" y1="90" x2="300.0" y2="104" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="210" y="104" width="180" height="276" rx="8" fill="#EAF6EC" stroke="#2E7D4F" stroke-width="1.5"/>
+<text x="300.0" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#2E7D4F">F2</text>
+<text x="300.0" y="137" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Verify Presence</text>
+<rect x="218" y="148" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="300.0" y="163" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">F2.1</text>
+<text x="300.0" y="177" text-anchor="middle" font-size="8.8" fill="#1F2933">Acquire Image</text>
+<rect x="218" y="192" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="300.0" y="207" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">F2.2</text>
+<text x="300.0" y="221" text-anchor="middle" font-size="8.8" fill="#1F2933">Detect Face</text>
+<rect x="218" y="236" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="300.0" y="251" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">F2.3</text>
+<text x="300.0" y="265" text-anchor="middle" font-size="8.8" fill="#1F2933">Verify Liveness</text>
+<rect x="218" y="280" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="300.0" y="295" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">F2.4</text>
+<text x="300.0" y="309" text-anchor="middle" font-size="8.8" fill="#1F2933">Represent Face</text>
+<rect x="218" y="324" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="300.0" y="339" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">F2.5</text>
+<text x="300.0" y="353" text-anchor="middle" font-size="8.8" fill="#1F2933">Match Identity</text>
+<line x1="490.0" y1="90" x2="490.0" y2="104" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="400" y="104" width="180" height="100" rx="8" fill="#FFF4E5" stroke="#B4741E" stroke-width="1.5"/>
+<text x="490.0" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#B4741E">F3</text>
+<text x="490.0" y="137" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Determine Attendance Status</text>
+<rect x="408" y="148" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.1"/>
+<text x="490.0" y="163" text-anchor="middle" font-size="9" font-weight="700" fill="#B4741E">F3 (leaf)</text>
+<text x="490.0" y="177" text-anchor="middle" font-size="8.8" fill="#1F2933">Classify Hadir / Terlambat / Alfa</text>
+<line x1="680.0" y1="90" x2="680.0" y2="104" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="590" y="104" width="180" height="188" rx="8" fill="#F3EDF9" stroke="#6B4C9A" stroke-width="1.5"/>
+<text x="680.0" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#6B4C9A">F4</text>
+<text x="680.0" y="137" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Record Attendance</text>
+<rect x="598" y="148" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="680.0" y="163" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">F4.1</text>
+<text x="680.0" y="177" text-anchor="middle" font-size="8.8" fill="#1F2933">Persist Record</text>
+<rect x="598" y="192" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="680.0" y="207" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">F4.2</text>
+<text x="680.0" y="221" text-anchor="middle" font-size="8.8" fill="#1F2933">Buffer Record (Offline)</text>
+<rect x="598" y="236" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="680.0" y="251" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">F4.3</text>
+<text x="680.0" y="265" text-anchor="middle" font-size="8.8" fill="#1F2933">Synchronize Record</text>
+<line x1="870.0" y1="90" x2="870.0" y2="104" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="780" y="104" width="180" height="144" rx="8" fill="#FDECEF" stroke="#B03A4E" stroke-width="1.5"/>
+<text x="870.0" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#B03A4E">F5</text>
+<text x="870.0" y="137" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Report Attendance</text>
+<rect x="788" y="148" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#B03A4E" stroke-width="1.1"/>
+<text x="870.0" y="163" text-anchor="middle" font-size="9" font-weight="700" fill="#B03A4E">F5.1</text>
+<text x="870.0" y="177" text-anchor="middle" font-size="8.8" fill="#1F2933">Compile Recap</text>
+<rect x="788" y="192" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#B03A4E" stroke-width="1.1"/>
+<text x="870.0" y="207" text-anchor="middle" font-size="9" font-weight="700" fill="#B03A4E">F5.2</text>
+<text x="870.0" y="221" text-anchor="middle" font-size="8.8" fill="#1F2933">Transmit Recap (SIAKAD)</text>
+<line x1="1060.0" y1="90" x2="1060.0" y2="104" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="970" y="104" width="180" height="144" rx="8" fill="#E9F5F6" stroke="#20707A" stroke-width="1.5"/>
+<text x="1060.0" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#20707A">F6</text>
+<text x="1060.0" y="137" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Notify Stakeholders</text>
+<rect x="978" y="148" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#20707A" stroke-width="1.1"/>
+<text x="1060.0" y="163" text-anchor="middle" font-size="9" font-weight="700" fill="#20707A">F6.1</text>
+<text x="1060.0" y="177" text-anchor="middle" font-size="8.8" fill="#1F2933">Notify Student (T-10m)</text>
+<rect x="978" y="192" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#20707A" stroke-width="1.1"/>
+<text x="1060.0" y="207" text-anchor="middle" font-size="9" font-weight="700" fill="#20707A">F6.2</text>
+<text x="1060.0" y="221" text-anchor="middle" font-size="8.8" fill="#1F2933">Alert Administrator</text>
+<line x1="110.0" y1="401" x2="110.0" y2="415" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="20" y="415" width="180" height="188" rx="8" fill="#E8F1FB" stroke="#2F6FB2" stroke-width="1.5"/>
+<text x="110.0" y="433" text-anchor="middle" font-size="11" font-weight="700" fill="#2F6FB2">F7</text>
+<text x="110.0" y="448" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Manage Identity Data</text>
+<rect x="28" y="459" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="110.0" y="474" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">F7.1</text>
+<text x="110.0" y="488" text-anchor="middle" font-size="8.8" fill="#1F2933">Capture Consent</text>
+<rect x="28" y="503" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="110.0" y="518" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">F7.2</text>
+<text x="110.0" y="532" text-anchor="middle" font-size="8.8" fill="#1F2933">Enrol Template</text>
+<rect x="28" y="547" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2F6FB2" stroke-width="1.1"/>
+<text x="110.0" y="562" text-anchor="middle" font-size="9" font-weight="700" fill="#2F6FB2">F7.3</text>
+<text x="110.0" y="576" text-anchor="middle" font-size="8.8" fill="#1F2933">Erase Biometric Data</text>
+<line x1="300.0" y1="401" x2="300.0" y2="415" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="210" y="415" width="180" height="144" rx="8" fill="#EAF6EC" stroke="#2E7D4F" stroke-width="1.5"/>
+<text x="300.0" y="433" text-anchor="middle" font-size="11" font-weight="700" fill="#2E7D4F">F8</text>
+<text x="300.0" y="448" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Control Access</text>
+<rect x="218" y="459" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="300.0" y="474" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">F8.1</text>
+<text x="300.0" y="488" text-anchor="middle" font-size="8.8" fill="#1F2933">Authenticate User (SSO)</text>
+<rect x="218" y="503" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#2E7D4F" stroke-width="1.1"/>
+<text x="300.0" y="518" text-anchor="middle" font-size="9" font-weight="700" fill="#2E7D4F">F8.2</text>
+<text x="300.0" y="532" text-anchor="middle" font-size="8.8" fill="#1F2933">Authorize Role (RBAC)</text>
+<line x1="490.0" y1="401" x2="490.0" y2="415" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="400" y="415" width="180" height="100" rx="8" fill="#FFF4E5" stroke="#B4741E" stroke-width="1.5"/>
+<text x="490.0" y="433" text-anchor="middle" font-size="11" font-weight="700" fill="#B4741E">F9</text>
+<text x="490.0" y="448" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Record Audit Trail</text>
+<rect x="408" y="459" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#B4741E" stroke-width="1.1"/>
+<text x="490.0" y="474" text-anchor="middle" font-size="9" font-weight="700" fill="#B4741E">F9 (leaf)</text>
+<text x="490.0" y="488" text-anchor="middle" font-size="8.8" fill="#1F2933">Append-Only Audit Trail</text>
+<line x1="680.0" y1="401" x2="680.0" y2="415" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="590" y="415" width="180" height="100" rx="8" fill="#F3EDF9" stroke="#6B4C9A" stroke-width="1.5"/>
+<text x="680.0" y="433" text-anchor="middle" font-size="11" font-weight="700" fill="#6B4C9A">F10</text>
+<text x="680.0" y="448" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Present Feedback</text>
+<rect x="598" y="459" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#6B4C9A" stroke-width="1.1"/>
+<text x="680.0" y="474" text-anchor="middle" font-size="9" font-weight="700" fill="#6B4C9A">F10 (leaf)</text>
+<text x="680.0" y="488" text-anchor="middle" font-size="8.8" fill="#1F2933">Display Status &amp; UI View</text>
+<line x1="870.0" y1="401" x2="870.0" y2="415" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="780" y="415" width="180" height="100" rx="8" fill="#FDECEF" stroke="#B03A4E" stroke-width="1.5"/>
+<text x="870.0" y="433" text-anchor="middle" font-size="11" font-weight="700" fill="#B03A4E">F11</text>
+<text x="870.0" y="448" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Monitor Readiness</text>
+<rect x="788" y="459" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#B03A4E" stroke-width="1.1"/>
+<text x="870.0" y="474" text-anchor="middle" font-size="9" font-weight="700" fill="#B03A4E">F11 (leaf)</text>
+<text x="870.0" y="488" text-anchor="middle" font-size="8.8" fill="#1F2933">Boot Self-Test Terminal</text>
+<line x1="1060.0" y1="401" x2="1060.0" y2="415" stroke="#616E7C" stroke-width="1.3"/>
+<rect x="970" y="415" width="180" height="100" rx="8" fill="#E9F5F6" stroke="#20707A" stroke-width="1.5"/>
+<text x="1060.0" y="433" text-anchor="middle" font-size="11" font-weight="700" fill="#20707A">F12</text>
+<text x="1060.0" y="448" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2933">Synchronize Time</text>
+<rect x="978" y="459" width="164" height="38" rx="5" fill="#FFFFFF" stroke="#20707A" stroke-width="1.1"/>
+<text x="1060.0" y="474" text-anchor="middle" font-size="9" font-weight="700" fill="#20707A">F12 (leaf)</text>
+<text x="1060.0" y="488" text-anchor="middle" font-size="8.8" fill="#1F2933">Sync Reference Time (NTP)</text>
+<line x1="580.0" y1="78" x2="580.0" y2="90" stroke="#616E7C" stroke-width="1.5"/>
+<line x1="110.0" y1="90" x2="1060.0" y2="90" stroke="#616E7C" stroke-width="1.5"/>
+<line x1="580.0" y1="390" x2="580.0" y2="401" stroke="#616E7C" stroke-width="1.5"/>
+<line x1="110.0" y1="401" x2="1060.0" y2="401" stroke="#616E7C" stroke-width="1.5"/>
+</svg>
