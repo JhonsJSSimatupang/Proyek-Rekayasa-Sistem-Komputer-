@@ -49,8 +49,6 @@ Arsitektur SiHADIR terdiri dari enam subsistem utama:
 ```text
 Proyek RSK-System Composer/
 │
-├── .vscode/
-│
 ├── 01_DOKUMEN_UTAMA/
 │   └── Dokumen utama dan spesifikasi sistem
 │
