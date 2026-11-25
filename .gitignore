@@ -27,6 +27,8 @@ Thumbs.db
 # Build intermediate
 _build/
 
-# Dokumen laporan utama dikumpulkan terpisah
-01_DOKUMEN_UTAMA/
+# Dokumen laporan utama PDF dikumpulkan terpisah (folder tetap dipertahankan)
+01_DOKUMEN_UTAMA/*.pdf
+01_DOKUMEN_UTAMA/*.docx
+01_DOKUMEN_UTAMA/*.html
 

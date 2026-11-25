@@ -49,23 +49,30 @@ Arsitektur SiHADIR terdiri dari enam subsistem utama:
 ```text
 Proyek-Rekayasa-Sistem-Komputer-/
 │
+├── 01_DOKUMEN_UTAMA/
+│   └── README.md (Panduan perakitan dokumen laporan utama SRS & Arsitektur)
+│
 ├── 02_DOKUMENTASI_SUMBER/
+│   ├── README.md (Panduan struktur bab S1..S10 & cara edit RTM_SiHADIR.csv)
 │   ├── S1_Audit_PRJ2_dan_ChangeLog.md .. S10_Model_MATLAB.md
 │   └── RTM_SiHADIR.csv
 │
 ├── 03_MODEL_MATLAB/
+│   ├── README.md (Panduan oprek & jalankan model MATLAB System Composer)
 │   ├── SiHADIR_Architecture.slx
 │   ├── SiHADIR_Architecture_Interfaces.sldd
 │   ├── sihadir_arch_spec.m
 │   └── Skrip pembangun, pemeriksa, tata letak, dan ekspor model (.m)
 │
 ├── 04_DIAGRAM_DAN_VISUALISASI/
+│   ├── README.md (Katalog diagram & cara generate ulang visualisasi)
 │   ├── SiHADIR_root.png & SiHADIR_S1..S6.png (ekspor kanvas System Composer)
 │   ├── fig_arsitektur_sihadir.svg / .png / .mmd
 │   ├── fig_alur_presensi.svg / .png
 │   └── Diagram Context, Use Case, Sequence (SD-01..SD-04), & Dekomposisi Fungsi
 │
 ├── 05_BUKTI_DAN_PENDUKUNG/
+│   ├── README.md (Panduan skrip verifikasi RTM & perakit laporan HTML/PDF)
 │   ├── S10_evidence.txt (transkrip verifikasi MATLAB 15/15 & 9/9 LULUS)
 │   ├── check_consistency.py (verifikasi otomatis RTM 36 requirement LULUS)
 │   ├── build_report.py (perakit laporan lengkap)
@@ -75,6 +82,39 @@ Proyek-Rekayasa-Sistem-Komputer-/
 ├── gen_flow_svg.py
 └── README.md
 ```
+
+## 🚀 Panduan Cepat Menjalankan & Oprek Program
+
+Setiap folder telah dilengkapi `README.md` detail. Berikut ringkasan perintah utamanya:
+
+### 1. Verifikasi Konsistensi RTM & Requirement (Python)
+Memeriksa 36 requirement di `RTM_SiHADIR.csv` terhadap ID Stakeholder Need (`SN`), Use Case (`UC`), Fungsi (`F`), Komponen (`C`), dan Interface (`IF`):
+```bash
+python 05_BUKTI_DAN_PENDUKUNG/check_consistency.py
+```
+
+### 2. Generate Ulang Diagram Arsitektur & Alur Proses (Python)
+Membaca langsung spesifikasi dari `03_MODEL_MATLAB/sihadir_arch_spec.m` dan menghasilkan diagram `.svg` serta `.mmd` ke folder `04_DIAGRAM_DAN_VISUALISASI/`:
+```bash
+python gen_arch_svg.py
+python gen_flow_svg.py
+```
+
+### 3. Rakit Ulang Laporan Lengkap HTML & PDF (Python)
+Menggabungkan `S1`–`S10` beserta seluruh gambar diagram dan screenshot System Composer menjadi file HTML (dan PDF otomatis bila Chrome/Edge tersedia):
+```bash
+python 05_BUKTI_DAN_PENDUKUNG/build_report.py
+# Atau langsung cetak ke PDF:
+python 05_BUKTI_DAN_PENDUKUNG/build_report.py 05_BUKTI_DAN_PENDUKUNG/_build/RSK_FINAL.html 01_DOKUMEN_UTAMA/SiHADIR_Final_SRS_Architecture.pdf
+```
+
+### 4. Membangun & Memverifikasi Model MATLAB System Composer (MATLAB R2024b+)
+Jalankan di Command Window MATLAB:
+```matlab
+cd('03_MODEL_MATLAB')
+run_sihadir_checks   % Menjalankan 15 cek spec + 9 cek model .slx + menulis S10_evidence.txt
+```
+Lihat [03_MODEL_MATLAB/README.md](03_MODEL_MATLAB/README.md) untuk panduan lengkap cara menambah/mengubah komponen, port, interface, atau link.
 
 ## 🧩 Model Architecture
 
