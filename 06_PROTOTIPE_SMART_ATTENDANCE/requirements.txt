@@ -1,0 +1,13 @@
+# Smart Attendance System - Requirements
+# Python >= 3.10 direkomendasikan
+
+# Core
+opencv-python>=4.9.0
+face-recognition>=1.3.0
+numpy>=1.26.0
+
+# Excel
+openpyxl>=3.1.2
+
+# (face-recognition otomatis install dlib dan cmake)
+# Jika install dlib gagal, lihat catatan di README di bawah

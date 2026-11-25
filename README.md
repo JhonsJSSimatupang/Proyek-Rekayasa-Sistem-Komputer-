@@ -78,6 +78,14 @@ Proyek-Rekayasa-Sistem-Komputer-/
 │   ├── build_report.py (perakit laporan lengkap)
 │   └── SiHADIR_MATLAB_Online.zip
 │
+├── 06_PROTOTIPE_SMART_ATTENDANCE/
+│   ├── README.md (Panduan jalankan & oprek prototipe Python OpenCV + face_recognition)
+│   ├── register_face.py (GUI OpenCV registrasi wajah + quality gate blur/brightness)
+│   ├── encode_faces.py (Ekstraksi embedding HOG 128-D ke encodings.pkl)
+│   ├── attendance.py (Verifikasi kehadiran real-time + pencatatan otomatis Excel)
+│   ├── requirements.txt
+│   └── data/ (Sample encodings, foto uji, dan hasil rekap presensi .xlsx)
+│
 ├── gen_arch_svg.py
 ├── gen_flow_svg.py
 └── README.md
@@ -115,6 +123,17 @@ cd('03_MODEL_MATLAB')
 run_sihadir_checks   % Menjalankan 15 cek spec + 9 cek model .slx + menulis S10_evidence.txt
 ```
 Lihat [03_MODEL_MATLAB/README.md](03_MODEL_MATLAB/README.md) untuk panduan lengkap cara menambah/mengubah komponen, port, interface, atau link.
+
+### 5. Menjalankan Prototipe Baseline Smart Attendance (Python + OpenCV)
+Prototipe end-to-end yang menjadi bukti konsep awal (*Engineering Development baseline* pada Bab S2.7) tersedia di `06_PROTOTIPE_SMART_ATTENDANCE/`:
+```bash
+cd 06_PROTOTIPE_SMART_ATTENDANCE
+pip install -r requirements.txt
+python register_face.py   # 1. Registrasi wajah mahasiswa via kamera (auto-capture + quality check)
+python encode_faces.py    # 2. Ekstraksi fitur/embedding wajah ke data/encodings/encodings.pkl
+python attendance.py      # 3. Verifikasi presensi real-time & rekap otomatis ke Excel
+```
+Lihat [06_PROTOTIPE_SMART_ATTENDANCE/README.md](06_PROTOTIPE_SMART_ATTENDANCE/README.md) untuk penjelasan parameter dan pemetaannya ke komponen arsitektur SiHADIR.
 
 ## 🧩 Model Architecture
 
