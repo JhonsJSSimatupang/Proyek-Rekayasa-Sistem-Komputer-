@@ -175,6 +175,8 @@ def build_mermaid(subs, comps, links):
         b = l["dst"].replace(".", "_")
         label = "" if l["if"] == "internal" else f'|{l["if"]}|'
         lines.append(f"  {a} -->{label} {b}")
+    lines.append('  E6_NTP(("E6 NTP Server"))')
+    lines.append('  C1_10 -->|IF-T2NTP| E6_NTP')
     return "\n".join(lines)
 
 

@@ -65,11 +65,11 @@ Caption: garis putus-putus = `<<include>>`; aktor sistem di kanan adalah aktor s
 **Main flow**
 1. Sistem menampilkan naskah consent versi X beserta tujuan, retensi, dan hak hapus.
 2. Mahasiswa mencentang "setuju".
-3. Sistem mencatat consent ke audit log.
+3. Sistem mengirim bukti consent lewat API Gateway ke Consent Module untuk disimpan di Consent Registry (`C4.4`), dan Audit Service mencatat kejadiannya.
 4. Sistem meminta mahasiswa memposisikan wajah pada area tangkap.
-5. Sistem menangkap 3–5 frame dan memeriksa kualitas (blur, pencahayaan, tepat satu wajah).
-6. Sistem mengekstrak embedding dan membentuk template.
-7. Sistem menyimpan template dan menghapus citra mentah.
+5. Terminal menangkap 3–5 frame dan memeriksa kualitas (blur, pencahayaan, tepat satu wajah).
+6. Terminal (`C1.4` → `C1.3`) mengekstrak embedding, membentuk template, dan menghapus citra mentah di terminal (<=100 s).
+7. Terminal mengirim template lewat API Gateway (`C2.1`) ke Enrolment Module (`C6.2`), yang menyimpannya ke Template DB (`C4.1`).
 8. Sistem menampilkan konfirmasi.
 
 **Alternative flow**
@@ -98,7 +98,7 @@ Caption: garis putus-putus = `<<include>>`; aktor sistem di kanan adalah aktor s
 2. Sistem memverifikasi liveness (kedipan/gerak/tekstur kulit).
 3. Jika live, sistem mengekstrak embedding.
 4. Sistem mencocokkan hanya terhadap template mahasiswa pada roster sesi aktif.
-5. Jika skor ≥ ambang, sistem menentukan status (Hadir/Terlambat) berdasarkan waktu server.
+5. Jika skor ≥ ambang, aplikasi terminal (`C1.3`) menentukan status (Hadir/Terlambat) menggunakan aturan jendela waktu dan waktu dari Time Client (`C1.10`).
 6. Sistem menyimpan record (NIM, waktu, terminal, skor, status, sumber=auto) ke local store.
 7. Sistem mengirim record ke backend secara asinkron.
 8. Sistem menampilkan nama + status kepada mahasiswa.
@@ -179,20 +179,31 @@ Caption: garis putus-putus = `<<include>>`; aktor sistem di kanan adalah aktor s
 ```mermaid
 sequenceDiagram
   actor M as Mahasiswa
-  participant T as Terminal
-  participant K as Kamera
-  participant DB as Template DB
-  participant AL as Audit Log
+  participant UI as Enrolment UI (C5.3)
+  participant T as Terminal App (C1.3)
+  participant K as Kamera (C1.1)
+  participant FR as Face Recog (C1.4)
+  participant GW as API Gateway (C2.1)
+  participant CM as Consent Module (C6.1)
+  participant CR as Consent Registry (C4.4)
+  participant EM as Enrolment Module (C6.2)
+  participant DB as Template DB (C4.1)
+  participant AL as Audit Service (C2.7)
 
-  M->>T: mulai enrolment
-  T->>M: naskah consent vX
-  M->>T: centang setuju
-  T->>AL: catat consent (NIM, waktu, versi)
+  M->>UI: mulai enrolment & baca naskah consent vX
+  M->>UI: centang setuju
+  UI->>GW: consentOut (IF-I10)
+  GW->>CM: consentOut (IF-I10)
+  CM->>CR: simpan bukti consent (IF-I10)
+  CM->>AL: catat kejadian consent (IF-I7)
   T->>K: capture 3-5 frame
-  K-->>T: frame
-  T->>T: cek kualitas + ekstrak embedding
-  T->>DB: simpan template
-  T->>T: hapus citra mentah (<=100 s)
+  K-->>T: frame (IF-I1)
+  T->>FR: frameOut (IF-I2)
+  FR-->>T: embedOut (template embedding, IF-I2)
+  T->>T: hapus citra mentah di terminal (<=100 s)
+  T->>GW: enrolOut (template, IF-T2B)
+  GW->>EM: enrolOut (IF-T2B)
+  EM->>DB: tplOut -> tplStoreIn (simpan template, IF-T2B)
   T-->>M: konfirmasi enrolment
 ```
 
@@ -200,39 +211,48 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
   actor M as Mahasiswa
-  participant K as Kamera
-  participant DET as Face Detector
-  participant LV as Liveness
-  participant MT as Matcher
-  participant R as Rule Engine
-  participant LS as Local Store
-  participant BE as Backend
+  participant K as Kamera (C1.1)
+  participant TC as Time Client (C1.10)
+  participant T as Status Rule / Terminal App (C1.3)
+  participant LV as Liveness Engine (C1.5)
+  participant FR as Face Recognition (C1.4)
+  participant LS as Local Store (C1.6)
+  participant SA as Sync Agent (C1.9)
+  participant GW as API Gateway (C2.1)
+  participant AS as Attendance Service (C2.3)
 
   M->>K: hadir fisik di depan terminal
-  K->>DET: frame
-  DET->>LV: wajah terdeteksi
-  LV->>MT: liveness OK
-  MT->>MT: cocokkan dengan roster sesi
-  MT->>R: identitas + skor + waktu
-  R->>LS: simpan record
-  R-->>M: status Hadir/Terlambat (<=2 s)
-  LS->>BE: push record (async)
+  K->>T: camOut (frame, IF-I1)
+  T->>LV: liveFrameOut (IF-I1)
+  LV-->>T: liveOut (liveness OK)
+  T->>FR: frameOut (hanya jika liveness lolos, IF-I2)
+  FR->>FR: cocokkan dengan template sesi dari C1.7 (IF-I9)
+  FR-->>T: matchOut (identitas + skor, IF-I3)
+  TC-->>T: timeOut (waktu tersinkron)
+  T->>T: tetapkan status Hadir/Terlambat (aturan jendela waktu, F3)
+  T->>LS: recordOut (simpan record lokal, IF-I4)
+  T-->>M: displayOut (nama + status <=2 s, IF-I4)
+  LS->>SA: storeOut (IF-I4)
+  SA->>GW: syncOut (batch/async record, IF-T2B)
+  GW->>AS: apiOut -> recIn
 ```
 
 ### SD-03 Offline → sinkronisasi
 ```mermaid
 sequenceDiagram
-  participant T as Terminal
-  participant LS as Local Store
-  participant BE as Backend
+  participant T as Terminal (C1.3/C1.9)
+  participant LS as Local Store (C1.6)
+  participant GW as API Gateway (C2.1)
+  participant AS as Attendance Service (C2.3)
 
-  T->>BE: POST /records
-  BE-->>T: timeout
+  T->>GW: POST /records (IF-T2B)
+  GW-->>T: timeout
   T->>T: mode offline (indikator aktif)
-  T->>LS: tulis record (UUID + timestamp asli)
-  Note over T,LS: verifikasi tetap berjalan
-  T->>BE: batch POST /records (retry)
-  BE-->>T: 200 ack per record
+  T->>LS: tulis record (UUID + timestamp asli, IF-I4)
+  Note over T,LS: verifikasi & penetapan status di C1.3 tetap berjalan
+  T->>GW: batch POST /records via C1.9 (retry, IF-T2B)
+  GW->>AS: teruskan record
+  GW-->>T: 200 ack per record
   T->>LS: tandai tersinkron
   T-->>T: ringkasan 0 hilang / 0 duplikat
 ```
@@ -241,18 +261,28 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
   actor D as Dosen
-  participant UI as UI Dosen
-  participant BE as Backend
-  participant RE as Rule Engine
-  participant SI as SIAKAD
+  participant UI as UI Dosen (C5.1)
+  participant GW as API Gateway (C2.1)
+  participant SS as Session Service (C2.2)
+  participant RE as Rule Engine (C2.4)
+  participant AS as Attendance Service (C2.3)
+  participant DB as Attendance DB (C4.2)
+  participant RS as Recap Service (C2.5)
+  participant SC as SIAKAD Connector (C3.1)
+  participant SI as SIAKAD (E4)
 
   D->>UI: Tutup Sesi
-  UI->>BE: closeSession(session_id)
-  BE->>RE: finalisasi status (Alfa)
-  RE-->>BE: rekap sesi
-  BE->>SI: POST /attendance-recap (idempotency key)
-  SI-->>BE: 201 + receipt
-  BE-->>UI: ringkasan + status terkirim
+  UI->>GW: uiOut (closeSession, IF-UI2B)
+  GW->>SS: cmdOut (IF-UI2B)
+  SS->>RE: sessionOut -> closeIn (pemicu tutup sesi)
+  RE->>AS: statusOut -> statusIn (finalisasi status Alfa, IF-I8)
+  AS->>DB: recOut -> recIn (simpan finalisasi, IF-I5)
+  AS->>RS: doneOut -> trigIn (pemicu rekap)
+  DB->>RS: recapOut -> recapIn (data rekap, IF-I6)
+  RS->>SC: recapOut -> recapIn (IF-B2S)
+  SC->>SI: POST /attendance-recap (idempotency key, IF-B2S)
+  SI-->>SC: 201 + receipt
+  GW-->>UI: viewOut -> viewIn (ringkasan + status terkirim)
 ```
 
 ## 4.8 ASSUMPTION

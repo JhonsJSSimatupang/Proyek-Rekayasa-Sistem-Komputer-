@@ -29,7 +29,7 @@ FUNC = ["F1.1", "F1.2", "F2.1", "F2.2", "F2.3", "F2.4", "F2.5", "F3",
 FUNC_AGG = ["F2", "F4"]                                       # aggregate nodes
 COMP = ([f"C1.{i}" for i in range(1, 12)] +
         [f"C2.{i}" for i in range(1, 9)] +
-        [f"C3.{i}" for i in range(1, 5)] +
+        [f"C3.{i}" for i in range(1, 4)] +
         [f"C4.{i}" for i in range(1, 5)] +
         [f"C5.{i}" for i in range(1, 4)] +
         [f"C6.{i}" for i in range(1, 4)])

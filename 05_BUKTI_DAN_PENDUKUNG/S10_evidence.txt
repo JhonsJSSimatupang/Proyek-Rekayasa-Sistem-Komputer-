@@ -1,14 +1,14 @@
 === SiHADIR verification transcript ===
-MATLAB 26.2.0.3433840 (R2026b) Update 1 | 2026-11-25 20:08
-Folder: 03_MODEL_MATLAB
+MATLAB 26.1.0.3312084 (R2026a) Update 4 | 2026-11-26 15:42
+Folder: C:\Users\Asus\tugas2\rsk\Proyek-Rekayasa-Sistem-Komputer-\03_MODEL_MATLAB
 
 --- 1. Spesifikasi arsitektur ---
 
 === SiHADIR architecture check ===
-komponen 33 | port 72 | interface 16 | link 27 | alokasi 24 | 24 fungsi RTM
+komponen 32 | port 100 | interface 16 | link 48 | alokasi 25 | 24 fungsi RTM
 ID   Pemeriksaan                                          Hasil Detail
-C1   ID komponen unik                                     PASS  33 komponen
-C2   Pasangan komponen/port unik                          PASS  72 port
+C1   ID komponen unik                                     PASS  32 komponen
+C2   Pasangan komponen/port unik                          PASS  100 port
 C3   Port menempel pada komponen yang ada                 PASS  0 pelanggaran
 C4   Interface port terdeklarasi                          PASS  tidak dikenal: 
 C5   Setiap komponen punya minimal satu port              PASS  tanpa port: 
@@ -21,7 +21,7 @@ C11  Fungsi yang dimiliki komponen teralokasi             PASS  belum:
 C12  Komponen tujuan benar-benar memiliki fungsi          PASS  0 menyimpang
 C13  Interface terpakai (peringatan)                      PASS  belum dipakai: 
 C14  Semua fungsi di RTM punya komponen                   PASS  0 dari 24 fungsi belum dialokasikan
-C15  Interface pada link terdeklarasi                     PASS  27 link
+C15  Interface pada link terdeklarasi                     PASS  48 link
 
 HASIL: LULUS (15 pemeriksaan)
 Hasil spec: LULUS (15/15)
@@ -29,30 +29,30 @@ Hasil spec: LULUS (15/15)
 --- 2. Model System Composer ---
 
 === SiHADIR built-model check ===
-subsistem 6 | komponen 33 | port 72 | konektor 42
+subsistem 6 | komponen 32 | port 100 | konektor 73
 M1   Model dapat dibuka                         PASS  SiHADIR_Architecture
 M2   Jumlah subsistem = 6                       PASS  6 subsistem
-M3   Jumlah komponen = 33                       PASS  model 33, spec 33
-M4   Jumlah port = spec                         PASS  model 72, spec 72
+M3   Jumlah komponen = 32                       PASS  model 32, spec 32
+M4   Jumlah port = spec                         PASS  model 100, spec 100
 M5   Semua komponen spec ada di model           PASS  0 hilang
 M6   Arah port sesuai spec                      PASS  0 menyimpang
 M7   Interface port terpasang sesuai spec       PASS  0 menyimpang
-M8   Konektor terbentuk (>=22)                  PASS  42 konektor
+M8   Konektor terbentuk (>=22)                  PASS  73 konektor
 M9   Dictionary berisi 16 interface             PASS  16 interface
 
 HASIL MODEL: LULUS (9 pemeriksaan)
 
 --- 3. Bukti struktur dari berkas .slx ---
-Blok total          : 141
-Garis total         : 57
-Konektor di root    : 15
-  S1 Edge Terminal         port  4 | konektor 16 | komponen 11
-  S2 Backend Services      port 11 | konektor 11 | komponen  8
-  S3 Integration & Comms   port  4 | konektor  4 | komponen  4
-  S4 Data Management       port  5 | konektor  5 | komponen  4
-  S5 User Interfaces       port  3 | konektor  3 | komponen  3
-  S6 Identity & Privacy    port  3 | konektor  3 | komponen  3
-Konektor di subsistem: 42
+Blok total          : 188
+Garis total         : 98
+Konektor di root    : 25
+  S1 Edge Terminal         port  4 | konektor 17 | komponen 11
+  S2 Backend Services      port 22 | konektor 32 | komponen  8
+  S3 Integration & Comms   port  3 | konektor  3 | komponen  3
+  S4 Data Management       port  8 | konektor  8 | komponen  4
+  S5 User Interfaces       port  5 | konektor  5 | komponen  3
+  S6 Identity & Privacy    port  8 | konektor  8 | komponen  3
+Konektor di subsistem: 73
 
 --- 4. Kesimpulan ---
 Spec  : LULUS

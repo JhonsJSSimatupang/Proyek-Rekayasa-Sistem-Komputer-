@@ -28,14 +28,24 @@ if bdIsLoaded(modelName)
     close_system(modelName, 0);
 end
 
-model = systemcomposer.loadModel(modelFile);
-arch = model.Architecture;
+useSC = ~isempty(which('systemcomposer.loadModel'));
+if useSC
+    model = systemcomposer.loadModel(modelFile);
+    arch = model.Architecture;
+    subs = arch.Components;
+    names = arrayfun(@(s) string(s.Name), subs);
+else
+    load_system(modelFile);
+    spec = sihadir_arch_spec();
+    names = strings(1, numel(spec.subsystems));
+    for k = 1:numel(spec.subsystems)
+        names(k) = sprintf('%s %s', spec.subsystems(k).id, spec.subsystems(k).name);
+    end
+end
 
 % --------------------------------------------------------- 1. subsystems
-subs = arch.Components;
-names = arrayfun(@(s) string(s.Name), subs);
 nArranged = 0;
-for k = 1:numel(subs)
+for k = 1:numel(names)
     subPath = sprintf('%s/%s', modelName, names(k));
     try
         Simulink.BlockDiagram.arrangeSystem(subPath);
@@ -44,28 +54,26 @@ for k = 1:numel(subs)
         fprintf(2, '  arrange %s gagal: %s\n', names(k), err.message);
     end
 end
-fprintf('Subsistem di-arrange : %d/%d\n', nArranged, numel(subs));
+fprintf('Subsistem di-arrange : %d/%d\n', nArranged, numel(names));
 
 % --------------------------------------------------------------- 2. root
-% The System Composer position setter rejects a height smaller than the one
-% the block already needs, which is what made every assignment after the
-% first fail. Writing the block parameter directly, and never shrinking the
-% height, avoids the check entirely.
-% The block path is rebuilt from the model name and the saved component name
-% instead of from subs(k).SimulinkHandle, because the handle of a System
-% Composer component goes stale as soon as a sibling is moved.
 placed = 0;
 n = numel(names);
 nCols = 3;
 nRows = ceil(n / nCols);
-cellW = 400;
-colGap = 100;
-rowGap = 140;
+cellW = 420;
+colGap = 130;
+rowGap = 150;
 heights = zeros(1, n);
 for k = 1:n
     blk = sprintf('%s/%s', modelName, names(k));
     p = get_param(blk, 'Position');
-    nPort = numel(subs(k).Ports);
+    if useSC
+        nPort = numel(subs(k).Ports);
+    else
+        ph = get_param(blk, 'PortHandles');
+        nPort = numel(ph.Inport) + numel(ph.Outport);
+    end
     heights(k) = max([p(4) - p(2), 260, 60 + 18 * nPort]);
 end
 y = 80;
@@ -88,6 +96,11 @@ for r = 1:nRows
 end
 fprintf('Root ditempatkan     : %d/%d\n', placed, n);
 
-model.save();
-model.close();
+if useSC
+    model.save();
+    model.close();
+else
+    save_system(modelName, modelFile);
+    close_system(modelName, 0);
+end
 end

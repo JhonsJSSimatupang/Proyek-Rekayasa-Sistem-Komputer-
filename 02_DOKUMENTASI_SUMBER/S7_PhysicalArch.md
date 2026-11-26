@@ -17,7 +17,7 @@ flowchart TB
       C14["C1.4 Face Detection & Recognition (SW/ML)"]
       C15["C1.5 Liveness Engine (SW/ML)"]
       C16["C1.6 Local Record Store (SW)"]
-      C17["C1.7 Roster Cache (SW)"]
+      C17["C1.7 Roster & Template Cache (SW)"]
       C18["C1.8 Display (HW/SW)"]
       C19["C1.9 Sync Agent (SW)"]
       C110["C1.10 Time Client (SW)"]
@@ -37,7 +37,6 @@ flowchart TB
       C31["C3.1 SIAKAD Connector"]
       C32["C3.2 Notification Connector"]
       C33["C3.3 SSO Connector"]
-      C34["C3.4 NTP Connector"]
     end
     subgraph S4["S4 Data Management"]
       C41["C4.1 Template DB"]
@@ -89,11 +88,11 @@ flowchart TB
 |---|---|---|---|---|
 | C1.1 | Camera | HW | Menangkap frame | F2.1 |
 | C1.2 | Compute Unit | HW | Menjalankan SW terminal | host F2.2–F2.5, F4.2 |
-| C1.3 | Terminal Application | SW | Orkestrasi alur verifikasi | F2, F10 |
+| C1.3 | Terminal Application | SW | Orkestrasi alur verifikasi & penetapan status di terminal | F3, F10 |
 | C1.4 | Face Detection & Recognition | SW/ML | Deteksi, representasi, pencocokan | F2.2, F2.4, F2.5 |
 | C1.5 | Liveness Engine | SW/ML | Uji keaslian subjek | F2.3 |
 | C1.6 | Local Record Store | SW/data | Buffer record saat offline | F4.2 |
-| C1.7 | Roster Cache | SW/data | Menyimpan roster sesi | F1.1 (dukungan) |
+| C1.7 | Roster & Template Cache | SW/data | Menyimpan roster & template sesi aktif | F1.1, F2.5 |
 | C1.8 | Display | HW/SW | Umpan balik ke mahasiswa | F10 |
 | C1.9 | Sync Agent | SW | Sinkronisasi record | F4.3 |
 | C1.10 | Time Client | SW | Sinkronisasi waktu | F12 |
@@ -109,7 +108,6 @@ flowchart TB
 | C3.1 | SIAKAD Connector | SW | Kontrak API SIAKAD | F5.2 |
 | C3.2 | Notification Connector | SW | Kontrak gateway | F6.1 |
 | C3.3 | SSO Connector | SW | Kontrak OIDC/SAML | F8.1 |
-| C3.4 | NTP Connector | SW | Kontrak NTP | F12 |
 | C4.1 | Template DB | Data | Menyimpan template | dukung F2.5, F7.2 |
 | C4.2 | Attendance DB | Data | Menyimpan record & rekap | dukung F4.1, F5.1 |
 | C4.3 | Audit Store | Data | Append-only | dukung F9 |
@@ -121,20 +119,41 @@ flowchart TB
 | C6.2 | Enrolment Module | SW | Membentuk template | F7.2 |
 | C6.3 | Erasure Module | SW | Menghapus data biometrik | F7.3 |
 
-## 7.4 Port & antarmuka komponen (ringkas)
-| Komponen | Port | Arah | Interface | Data |
-|---|---|---|---|---|
-| C1.3 | camIn | in | internal | frame |
-| C1.3 | apiOut | out | IF-T2B | record JSON |
-| C1.3 | displayOut | out | internal | nama + status |
-| C1.9 | syncOut | out | IF-T2B | batch record |
-| C1.10 | ntpOut | out | IF-T2NTP | query waktu |
-| C2.1 | termIn | in | IF-T2B | record |
-| C2.1 | uiIn | in | IF-UI2B | perintah sesi |
-| C2.5 | recapOut | out | IF-B2S | rekap |
-| C2.6 | notifyOut | out | IF-B2GW | payload pesan |
-| C2.8 | ssoOut | out | IF-B2SSO | auth request |
-| C5.1 | uiOut | out | IF-UI2B | perintah/kueri |
+## 7.4 Port & antarmuka komponen (lengkap 100 port pada 32 komponen)
+| Komponen | Port (`arah : interface`) |
+|---|---|
+| C1.1 Camera | `camOut` (out : `IF-I1`) |
+| C1.2 Compute Unit | `statusOut` (out : `internal`) |
+| C1.3 Terminal Application | `camIn` (in : `IF-I1`), `matchIn` (in : `IF-I3`), `liveIn` (in : `internal`), `readyIn` (in : `internal`), `timeIn` (in : `internal`), `embedIn` (in : `IF-I2`), `frameOut` (out : `IF-I2`), `liveFrameOut` (out : `IF-I1`), `recordOut` (out : `IF-I4`), `apiOut` (out : `IF-T2B`), `displayOut` (out : `IF-I4`), `enrolOut` (out : `IF-T2B`) |
+| C1.4 Face Detection & Recognition | `frameIn` (in : `IF-I2`), `tplIn` (in : `IF-I9`), `matchOut` (out : `IF-I3`), `embedOut` (out : `IF-I2`) |
+| C1.5 Liveness Engine | `frameIn` (in : `IF-I1`), `liveOut` (out : `internal`) |
+| C1.6 Local Record Store | `storeIn` (in : `IF-I4`), `storeOut` (out : `IF-I4`) |
+| C1.7 Roster & Template Cache | `rosterIn` (in : `IF-I9`), `tplOut` (out : `IF-I9`) |
+| C1.8 Display | `dispIn` (in : `IF-I4`) |
+| C1.9 Sync Agent | `syncIn` (in : `IF-I4`), `syncOut` (out : `IF-T2B`) |
+| C1.10 Time Client | `ntpOut` (out : `IF-T2NTP`), `timeOut` (out : `internal`) |
+| C1.11 Readiness Monitor | `statusIn` (in : `internal`), `readyOut` (out : `internal`) |
+| C2.1 API Gateway | `termIn` (in : `IF-T2B`), `syncIn` (in : `IF-T2B`), `uiIn` (in : `IF-UI2B`), `uiInAdmin` (in : `IF-UI2B`), `authIn` (in : `internal`), `enrolIn` (in : `IF-T2B`), `consentIn` (in : `IF-I10`), `apiOut` (out : `internal`), `cmdOut` (out : `IF-UI2B`), `enrolOut` (out : `IF-T2B`), `eraseOut` (out : `IF-UI2B`), `viewOut` (out : `IF-UI2B`), `auditOut` (out : `IF-I7`), `consentOut` (out : `IF-I10`) |
+| C2.2 Session Service | `cmdIn` (in : `IF-UI2B`), `tplIn` (in : `IF-I9`), `rosterOut` (out : `IF-I9`), `sessionOut` (out : `internal`), `timerOut` (out : `internal`) |
+| C2.3 Attendance Service | `recIn` (in : `internal`), `statusIn` (in : `IF-I8`), `recOut` (out : `IF-I5`), `doneOut` (out : `internal`), `evtOut` (out : `internal`), `auditOut` (out : `IF-I7`) |
+| C2.4 Rule Engine | `closeIn` (in : `internal`), `statusOut` (out : `IF-I8`) |
+| C2.5 Recap Service | `recapIn` (in : `IF-I6`), `trigIn` (in : `internal`), `recapOut` (out : `IF-B2S`) |
+| C2.6 Notification Service | `trigIn` (in : `internal`), `evtIn` (in : `internal`), `pendingIn` (in : `IF-I6`), `notifyOut` (out : `IF-B2GW`), `alertOut` (out : `IF-UI2B`) |
+| C2.7 Audit Service | `auditGwIn` (in : `IF-I7`), `auditAttIn` (in : `IF-I7`), `auditConsentIn` (in : `IF-I7`), `auditEraseIn` (in : `IF-I7`), `auditOut` (out : `IF-I7`) |
+| C2.8 Access Control Service | `ssoOut` (out : `IF-B2SSO`), `tokenOut` (out : `internal`) |
+| C3.1 SIAKAD Connector | `recapIn` (in : `IF-B2S`), `recapOut` (out : `IF-B2S`) |
+| C3.2 Notification Connector | `notifyIn` (in : `IF-B2GW`), `notifyOut` (out : `IF-B2GW`) |
+| C3.3 SSO Connector | `authIn` (in : `IF-B2SSO`), `authOut` (out : `IF-B2SSO`) |
+| C4.1 Template DB | `tplIn` (in : `internal`), `tplStoreIn` (in : `IF-T2B`), `tplOut` (out : `IF-I9`) |
+| C4.2 Attendance DB | `recIn` (in : `IF-I5`), `recapOut` (out : `IF-I6`), `pendingOut` (out : `IF-I6`) |
+| C4.3 Audit Store | `auditIn` (in : `IF-I7`) |
+| C4.4 Consent Registry | `consentIn` (in : `IF-I10`) |
+| C5.1 Lecturer UI | `viewIn` (in : `IF-UI2B`), `uiOut` (out : `IF-UI2B`) |
+| C5.2 Admin Console | `alertIn` (in : `IF-UI2B`), `uiOut` (out : `IF-UI2B`) |
+| C5.3 Enrolment UI | `consentOut` (out : `IF-I10`) |
+| C6.1 Consent Module | `consentIn` (in : `IF-I10`), `consentOut` (out : `IF-I10`), `auditOut` (out : `IF-I7`) |
+| C6.2 Enrolment Module | `tplIn` (in : `IF-T2B`), `tplOut` (out : `IF-T2B`) |
+| C6.3 Erasure Module | `eraseIn` (in : `IF-UI2B`), `tplDelOut` (out : `internal`), `auditOut` (out : `IF-I7`) |
 
 ## 7.5 Trade study 1 — lokasi inferensi (edge vs server vs hybrid)
 Bobot: latency 0,30 · offline 0,25 · privacy 0,20 · cost 0,15 · scalability 0,10 (skala 1–5).
@@ -172,12 +191,15 @@ Bobot: security/APCER 0,55 · UX/waktu 0,20 · biaya HW 0,15 · kelayakan CPU 0,
 | Data dipisah dari layanan | Retensi & hak hapus biometrik tanpa downtime |
 | Integration adapter per sistem eksternal | Kontrak eksternal berubah independen; isolasi kegagalan |
 | Audit store append-only terpisah | Kebutuhan integritas & pemeriksaan auditor |
+| Gateway sebagai satu-satunya pintu klien | Seluruh klien (terminal, UI dosen, UI admin, UI enrolment) wajib melewati `C2.1 API Gateway` setelah otorisasi `C2.8` |
+| Time Client langsung ke NTP | `C1.10 Time Client` terhubung langsung ke server NTP eksternal (`E6`) sehingga terminal tidak bergantung pada backend untuk sinkronisasi waktu |
 
 ## 7.8 Catatan SPOF (detail di S8)
 - C4.1 Template DB: satu instance → jika mati, verifikasi gagal total.
 - C2.1 API Gateway: satu titik masuk.
 - C3.1 SIAKAD Connector: ketergantungan eksternal (A-01).
 - C1.2 Compute Unit: satu terminal per kelas; tidak ada redundansi.
+- C1.10 Time Client: terhubung langsung ke NTP eksternal (`E6`) dan tidak bergantung pada backend; jika NTP gagal, terminal memakai jam monotonik + flag.
 
 ## 7.9 ASSUMPTION
 - A-18: satu backend terpusat melayani seluruh terminal (bukan multi-region).

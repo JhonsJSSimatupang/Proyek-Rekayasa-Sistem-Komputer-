@@ -144,12 +144,12 @@ Ringkasan kondisi model berdasarkan pemeriksaan terakhir:
 | Elemen               | Jumlah |
 | -------------------- | -----: |
 | Subsystems           |      6 |
-| Components           |     33 |
+| Components           |     32 |
 | Interfaces           |     16 |
-| Ports (Leaf / Boundary) | 72 / 30 |
-| Architecture Links   |     27 |
-| Connectors (Root / Sub) | 15 / 42 |
-| Function Allocations |     24 |
+| Ports (Leaf / Boundary) | 100 / 50 |
+| Architecture Links   |     48 |
+| Connectors (Root / Sub) | 25 / 73 |
+| Function Allocations |     25 |
 
 _Seluruh elemen di atas telah diverifikasi otomatis melalui `verify_architecture_spec.m` (15/15 LULUS), `verify_built_model.m` (9/9 LULUS), dan `check_consistency.py` (0 temuan pada 36 requirement)._
 
@@ -181,9 +181,9 @@ Verification
 
 Seluruh rantai rekayasa dan model arsitektur telah melewati verifikasi otomatis (**LULUS 100%**):
 
-- **Konsistensi RTM & Traceability (`check_consistency.py`)**: **LULUS (0 temuan)** — 36 requirement (15 FR, 6 PRF, 6 IF, 5 SEC, 4 OPS), 13/13 Stakeholder Needs, 12/12 Use Case, 24/24 fungsi leaf (+2 agregat), 33/33 komponen, 16 ICD + `internal`.
-- **Spesifikasi Arsitektur (`verify_architecture_spec.m`)**: **LULUS (15/15 pemeriksaan C1–C15)** — keunikan ID, konsistensi arah & interface pada 72 port dan 27 link, serta kelengkapan alokasi 24 fungsi terhadap RTM.
-- **Model MATLAB System Composer (`verify_built_model.m`)**: **LULUS (9/9 pemeriksaan M1–M9)** — 6 subsistem, 33 komponen, 72 port komponen + 30 port batas, 16 interface di `.sldd`, dan 57 garis konektor (15 di root + 42 di dalam subsistem).
+- **Konsistensi RTM & Traceability (`check_consistency.py`)**: **LULUS (0 temuan)** — 36 requirement (15 FR, 6 PRF, 6 IF, 5 SEC, 4 OPS), 13/13 Stakeholder Needs, 12/12 Use Case, 24/24 fungsi leaf (+2 agregat), 32/32 komponen, 16 ICD + `internal`.
+- **Spesifikasi Arsitektur (`verify_architecture_spec.m`)**: **LULUS (15/15 pemeriksaan C1–C15)** — keunikan ID, konsistensi arah & interface pada 100 port dan 48 link, serta kelengkapan alokasi 24 fungsi terhadap RTM.
+- **Model MATLAB System Composer (`verify_built_model.m`)**: **LULUS (9/9 pemeriksaan M1–M9)** — 6 subsistem, 32 komponen, 100 port komponen + 50 port batas, 16 interface di `.sldd`, dan 98 garis konektor (25 di root + 73 di dalam subsistem).
 
 ## 📦 Project Deliverables
 

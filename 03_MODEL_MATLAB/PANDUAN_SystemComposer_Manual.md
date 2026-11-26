@@ -7,11 +7,11 @@ jadi model yang kamu buat akan sama persis dengan yang diperiksa `verify_archite
 | Yang dibangun | Jumlah |
 |---|---|
 | Subsistem (level 1) | 6 |
-| Komponen (daun) | 33 |
-| Port pada komponen | 72 |
+| Komponen (daun) | 32 |
+| Port pada komponen | 100 |
 | Interface (data interface di dictionary) | 16 |
-| Link / konektor | 27 |
-| Alokasi fungsi → komponen | 24 |
+| Link / konektor | 48 |
+| Alokasi fungsi → komponen | 25 |
 
 ---
 
@@ -155,9 +155,8 @@ Buka `S1` (double-click) → **Add Component** sesuai jumlah, rename. Ulangi unt
 `C2.5 Recap Service` · `C2.6 Notification Service` · `C2.7 Audit Service` ·
 `C2.8 Access Control Service`
 
-### S3 — Integration & Comms (4 komponen)
-`C3.1 SIAKAD Connector` · `C3.2 Notification Connector` · `C3.3 SSO Connector` ·
-`C3.4 NTP Connector`
+### S3 — Integration & Comms (3 komponen)
+`C3.1 SIAKAD Connector` · `C3.2 Notification Connector` · `C3.3 SSO Connector`
 
 ### S4 — Data Management (4 komponen)
 `C4.1 Template DB` · `C4.2 Attendance DB` · `C4.3 Audit Store` · `C4.4 Consent Registry`
@@ -242,8 +241,6 @@ set **Direction** (Input/Output) dan **Interface** (pilih dari dictionary).
 | C3.2 | notifyOut | Output | IF-B2GW |
 | C3.3 | authIn | Input | IF-B2SSO |
 | C3.3 | authOut | Output | IF-B2SSO |
-| C3.4 | ntpIn | Input | IF-T2NTP |
-| C3.4 | ntpOut | Output | IF-T2NTP |
 
 ### S4 — Data Management
 
@@ -315,7 +312,6 @@ subsistem bisa lebih dari 72; 72 hanya menghitung port komponen daun).
 |---|---|---|---|
 | 8 | C1.3.apiOut | C2.1.termIn | IF-T2B |
 | 9 | C1.9.syncOut | C2.1.syncIn | IF-T2B |
-| 10 | C1.10.ntpOut | C3.4.ntpIn | IF-T2NTP |
 | 11 | C2.2.rosterOut | C1.7.rosterIn | IF-I9 |
 | 12 | C2.3.recOut | C4.2.recIn | IF-I5 |
 | 13 | C4.2.recapOut | C2.5.recapIn | IF-I6 |

@@ -8,13 +8,13 @@ Folder ini berisi model arsitektur fisik **SiHADIR** pada **MATLAB System Compos
 
 | Berkas | Fungsi Utama | Butuh System Composer? |
 | :--- | :--- | :---: |
-| `SiHADIR_Architecture.slx` | **File model asli MATLAB System Composer** (6 subsistem, 33 komponen, 72 port komponen + 30 port batas, 57 konektor). | Ya (untuk buka di GUI) |
+| `SiHADIR_Architecture.slx` | **File model asli MATLAB System Composer** (6 subsistem, 32 komponen, 100 port komponen + 50 port batas, 98 konektor). | Ya (untuk buka di GUI) |
 | `SiHADIR_Architecture_Interfaces.sldd` | **Simulink Data Dictionary** yang menyimpan definisi 16 Data Interface (`IF_T2B`, `IF_B2S`, `IF_I1`..`IF_I10`, dll.) beserta elemen dan tipe datanya. | Ya |
-| `sihadir_arch_spec.m` | **Single Source of Truth (SSOT)** arsitektur di MATLAB: mendefinisikan 6 subsistem, 33 komponen, 72 port, 16 interface, 27 link, dan 24 alokasi fungsi. | **Tidak** (MATLAB dasar) |
+| `sihadir_arch_spec.m` | **Single Source of Truth (SSOT)** arsitektur di MATLAB: mendefinisikan 6 subsistem, 32 komponen, 100 port, 16 interface, 48 link, dan 25 alokasi fungsi. | **Tidak** (MATLAB dasar) |
 | `verify_architecture_spec.m` | Memeriksa 15 aturan konsistensi (`C1`–`C15`) atas `sihadir_arch_spec.m` dan menyilangkan alokasi fungsi terhadap `../02_DOKUMENTASI_SUMBER/RTM_SiHADIR.csv`. | **Tidak** (MATLAB dasar) |
 | `sihadir_iface_name.m` | Helper pemetaan ID interface dokumen (`IF-T2B`) menjadi identifier dictionary MATLAB (`IF_T2B`). | **Tidak** |
 | `build_sihadir_architecture.m` | Membangun `SiHADIR_Architecture.slx` dan `SiHADIR_Architecture_Interfaces.sldd` dari nol berdasarkan `sihadir_arch_spec.m`. | Ya |
-| `wire_sihadir_model.m` | Menggambar 57 garis konektor (`12` internal S1 + `15 × 3` lintas subsistem) menggunakan API garis Simulink agar terbaca sebagai `Connectors` di System Composer. | Ya |
+| `wire_sihadir_model.m` | Menggambar 98 garis konektor (`23` internal S1/S2 + `25 × 3` lintas subsistem) menggunakan API garis Simulink agar terbaca sebagai `Connectors` di System Composer. | Ya |
 | `layout_sihadir_model.m` | Menata tata letak 6 subsistem di root dalam grid `3 × 2` dan merapikan komponen di dalam tiap subsistem dengan `arrangeSystem`. | Ya |
 | `annotate_sihadir_model.m` | Menulis metadata `ID | jenis | fungsi` ke properti `Description` setiap blok komponen dan subsistem. | Ya |
 | `render_sihadir_model.m` | Mengekspor tangkapan layar kanvas root (`SiHADIR_root.png`) dan ke-6 subsistem (`SiHADIR_S1..S6.png`). | Ya |

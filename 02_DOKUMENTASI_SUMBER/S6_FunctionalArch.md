@@ -48,7 +48,7 @@ flowchart TD
 |---|---|---|---|---|---|
 | F1 | Manage Session | Perintah dosen, jadwal sesi | Kewenangan akademik, status sesi | Sesi aktif/tertutup, roster | UI dosen, layanan sesi |
 | F2 | Verify Presence | Subjek di area tangkap | Ambang kemiripan, kebijakan liveness | Identitas terverifikasi + skor | Sensor optik, unit komputasi |
-| F3 | Determine Attendance Status | Identitas, waktu, jendela waktu | Aturan Hadir/Terlambat/Alfa | Status kehadiran | Mesin aturan |
+| F3 | Determine Attendance Status | Identitas, waktu, jendela waktu | Aturan Hadir/Terlambat/Alfa | Status kehadiran | Aplikasi terminal (`C1.3` saat verifikasi di edge) & mesin aturan (`C2.4` finalisasi Alfa saat tutup sesi di backend) |
 | F4 | Record Attendance | Status + metadata | Skema record, idempotensi | Record tersimpan | Penyimpanan lokal & backend |
 | F5 | Report Attendance | Record sesi | Format SIAKAD, idempotency key | Rekap terkirim + ack | Layanan rekap, kanal integrasi |
 | F6 | Notify Stakeholders | Pemicu, daftar penerima | Template pesan, kebijakan notifikasi | Pesan terkirim | Gateway notifikasi |
@@ -113,6 +113,10 @@ flowchart TD
   S --> U[F5.2 Transmit Recap]
   U --> V[F9 Record Audit Trail]
 ```
+
+**Catatan keputusan aliran (D1 & D5):**
+- **D5 (Liveness mendahului pencocokan):** `F2.3 Verify Liveness` wajib dieksekusi dan lolos terlebih dahulu sebelum hasil pencocokan `F2.5 Match Identity` digunakan.
+- **D1 (Penetapan status di dua tempat):** `F3 Determine Attendance Status` dijalankan di **edge (`C1.3 Terminal Application`)** untuk menetapkan status *Hadir/Terlambat* secara mandiri saat verifikasi (sehingga tetap berfungsi saat offline), dan dijalankan di **backend (`C2.4 Rule Engine`)** untuk memvalidasi serta memfinalisasi status *Alfa* saat penutupan sesi (`F1.2`).
 
 ## 6.6 Matriks fungsi ↔ requirement
 | Fungsi | Requirement yang dipenuhi |

@@ -90,7 +90,7 @@ MERMAID_REPLACEMENTS = {
     "S7_PhysicalArch.md": [
         f'<figure><img src="{IMG}/fig_arsitektur_sihadir.png" style="width:100%">'
         '<figcaption>Gambar 7.1 &mdash; Dekomposisi Fisik SiHADIR: 6 subsistem (S1&ndash;S6), '
-        '33 komponen (C1.1&ndash;C6.3), beserta derajat kopling keluar/masuk tiap subsistem.</figcaption></figure>'
+        '32 komponen (C1.1&ndash;C6.3), beserta derajat kopling keluar/masuk tiap subsistem.</figcaption></figure>'
     ],
 }
 
@@ -100,7 +100,7 @@ FIGURES = {
         ("## 10.4 Pemeriksaan spesifikasi",
          f'<figure><img src="{IMG}/SiHADIR_root.png" style="width:100%">'
          '<figcaption>Gambar 10.1 &mdash; Diagram root <i>SiHADIR_Architecture.slx</i> '
-         'sebagaimana tersimpan di MATLAB System Composer: 6 subsistem, 30 port batas, 15 konektor antarsubsistem. '
+         'sebagaimana tersimpan di MATLAB System Composer: 6 subsistem, 50 port batas, 25 konektor antarsubsistem. '
          'Diekspor langsung dari model.</figcaption></figure>'),
         ("## 10.8 Port yang tidak tersambung",
          '<h3>Diagram Ekspor Kanvas Tiap Subsistem (MATLAB System Composer)</h3>'
@@ -108,12 +108,12 @@ FIGURES = {
              f'<figure><img src="{IMG}/{f}" style="width:96%">'
              f'<figcaption>Gambar 10.{i + 2} &mdash; {cap}</figcaption></figure>'
              for i, (f, cap) in enumerate([
-                 ("SiHADIR_S1_Edge_Terminal.png", "S1 Edge Terminal: 11 komponen (C1.1–C1.11), 4 port batas, 16 konektor."),
-                 ("SiHADIR_S2_Backend_Services.png", "S2 Backend Services: 8 komponen (C2.1–C2.8), 11 port batas, 11 konektor."),
-                 ("SiHADIR_S3_Integration_Comms.png", "S3 Integration &amp; Comms: 4 komponen (C3.1–C3.4), 4 port batas, 4 konektor."),
-                 ("SiHADIR_S4_Data_Management.png", "S4 Data Management: 4 komponen (C4.1–C4.4), 5 port batas, 5 konektor."),
-                 ("SiHADIR_S5_User_Interfaces.png", "S5 User Interfaces: 3 komponen (C5.1–C5.3), 3 port batas, 3 konektor."),
-                 ("SiHADIR_S6_Identity_Privacy.png", "S6 Identity &amp; Privacy: 3 komponen (C6.1–C6.3), 3 port batas, 3 konektor."),
+                 ("SiHADIR_S1_Edge_Terminal.png", "S1 Edge Terminal: 11 komponen (C1.1–C1.11), 4 port batas, 17 konektor."),
+                 ("SiHADIR_S2_Backend_Services.png", "S2 Backend Services: 8 komponen (C2.1–C2.8), 22 port batas, 32 konektor."),
+                 ("SiHADIR_S3_Integration_Comms.png", "S3 Integration &amp; Comms: 3 komponen (C3.1–C3.3), 3 port batas, 3 konektor."),
+                 ("SiHADIR_S4_Data_Management.png", "S4 Data Management: 4 komponen (C4.1–C4.4), 8 port batas, 8 konektor."),
+                 ("SiHADIR_S5_User_Interfaces.png", "S5 User Interfaces: 3 komponen (C5.1–C5.3), 5 port batas, 5 konektor."),
+                 ("SiHADIR_S6_Identity_Privacy.png", "S6 Identity &amp; Privacy: 3 komponen (C6.1–C6.3), 8 port batas, 8 konektor."),
              ])
          )),
     ],

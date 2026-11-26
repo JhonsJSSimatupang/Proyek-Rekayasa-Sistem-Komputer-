@@ -16,7 +16,7 @@ LANES = [
     ("Dosen", "C5.1 / C5.2", "#FDECEF", "#B03A4E"),
     ("Terminal (S1)", "C1.1-C1.11", "#E8F1FB", "#2F6FB2"),
     ("Layanan (S2)", "C2.1-C2.8", "#EAF6EC", "#2E7D4F"),
-    ("Integrasi (S3)", "C3.1-C3.4", "#FFF4E5", "#B4741E"),
+    ("Integrasi (S3)", "C3.1-C3.3", "#FFF4E5", "#B4741E"),
     ("Data (S4)", "C4.1-C4.4", "#F3EDF9", "#6B4C9A"),
 ]
 

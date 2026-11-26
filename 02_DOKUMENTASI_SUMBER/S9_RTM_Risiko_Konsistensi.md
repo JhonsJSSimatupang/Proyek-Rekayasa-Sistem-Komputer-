@@ -16,7 +16,7 @@ Delapan kolom tengah adalah rantai jejak wajib; `Type` dan `Acceptance` melengka
 | SN tercakup | 13/13 |
 | Use case tercakup | 10/12 langsung + 2 transitif (UC-11, UC-12 ⊂ UC-02) |
 | Fungsi tercakup | 26/24 leaf + 2 agregat (F2, F4) |
-| Komponen tercakup | 33/33 |
+| Komponen tercakup | 32/32 |
 | Interface tercakup | 17/17 (16 ICD + 1 `internal`) |
 
 ## 9.2 Rantai jejak per lapisan
@@ -27,7 +27,7 @@ Delapan kolom tengah adalah rantai jejak wajib; `Type` dan `Acceptance` melengka
 | Use case → Requirement | UC-01..UC-12 | SR-* | 12/12 UC punya requirement (UC-11/12 transitif) |
 | Requirement → Fungsi | SR-* | F* | 36/36 terpetakan; 0 fungsi tanpa req |
 | Fungsi → Komponen | F* | C* | 24/24 leaf teralokasi (S8) |
-| Komponen → Interface | C* | IF-* | 33/33 komponen punya ≥1 port |
+| Komponen → Interface | C* | IF-* | 32/32 komponen punya ≥1 port |
 | Requirement → Verifikasi | SR-* | Test/Demo/Analysis | 36/36 punya metode + acceptance terukur |
 
 ### Contoh rantai penuh (satu requirement)
@@ -41,7 +41,7 @@ Requirements : 36
 SN dipakai   : 13/13
 UC dipakai   : 10/12 (transitive: UC-11, UC-12)
 Fungsi       : 26/24 (+2 agregat)
-Komponen     : 33/33
+Komponen     : 32/32
 Interface    : 17/17
 Distribusi   : FR 15, PRF 6, IF 6, SEC 5, OPS 4
 Prioritas    : M 31, S 5
@@ -97,8 +97,8 @@ Tidak ada risiko yang dibiarkan tanpa mitigasi; dua risiko kritis (R-01, R-02) p
 | S3 SN ↔ S5 requirement | 13 SN, 36 req | 0 SN yatim, 0 req tanpa SN |
 | S4 UC ↔ S5 requirement | 12 UC | 12/12 tercakup (2 transitif) |
 | S5 requirement ↔ S6 fungsi | 36 req, 24 leaf | 0 yatim dua arah |
-| S6 fungsi ↔ S7 komponen | 24 leaf | 24/24 teralokasi |
-| S7 komponen ↔ S8 interface | 33 komponen | 33/33 punya port |
+| S6 fungsi ↔ S7 komponen | 24 leaf | 24/24 teralokasi (25 alokasi) |
+| S7 komponen ↔ S8 interface | 32 komponen | 32/32 punya port (100 port, 48 link) |
 | S8 ICD ↔ S5 interface req | 6 IF eksternal | 6/6 punya ICD + requirement |
 | S5 verifikasi ↔ acceptance | 36 | 36/36 punya ambang angka |
 
@@ -123,6 +123,10 @@ Untuk membuktikan ketertelusuran dua arah (*forward & backward traceability*) pa
 | **Skenario 1 — Ketahanan Anti-Spoofing Diperketat:** `SR-PRF5` diubah dari `APCER/BPCER ≤ 5%` menjadi `≤ 1%`, dan `SR-PRF2` waktu verifikasi diperketat dari `p95 ≤ 2 s` menjadi `≤ 1 s` | `UC-02` (Verifikasi Kehadiran), `UC-11` (Verifikasi Liveness) | `F2.1` (Acquire Image), `F2.3` (Verify Liveness), `F10` (Present Feedback) | **`S1 Edge Terminal`**: `C1.1 Camera` (upgrade ke kamera RGB+IR), `C1.2 Compute Unit` (akselerasi inferensi), `C1.5 Liveness Engine` (model multi-modal tanpa challenge aktif) | `IF-I1` (`C1.1.camOut → C1.3.camIn` & `C1.3.liveFrameOut → C1.5.frameIn` perlu kanal frame IR), `IF-I3` (`C1.4.matchOut → C1.3.matchIn`) | Uji `SR-PRF5` diperluas ke 500 serangan dengan ambang gagal `≤ 5` (`1%`); uji `SR-PRF2` pada 200 sampel wajib `p95 ≤ 1,0 s` |
 | **Skenario 2 — Integrasi SIAKAD Berubah dari Push REST API ke Event-Driven Webhook / Message Queue:** Perubahan pada `SR-IF2` & `SR-FR14` | `UC-04` (Tutup Sesi & Rekap ke SIAKAD) | `F5.1` (Compile Recap), `F5.2` (Transmit Recap) | **`S2 Backend Services`** (`C2.5 Recap Service`) dan **`S3 Integration & Comms`** (`C3.1 SIAKAD Connector`); komponen di `S1`, `S4`, `S5`, `S6` **terisolasi (tidak terdampak)** berkat pola *connector adapter* | `IF-B2S` (`C2.5.recapOut → C3.1.recapIn` dan `C3.1.recapOut` ke `E4 SIAKAD`) berubah skema payload & protokol transport di dictionary `.sldd` | Uji `SR-IF2` dan `SR-PRF6` disesuaikan untuk menguji *message ack/receipt* broker dalam `≤ 60 s` dan idempotensi `session_id` |
 | **Skenario 3 — Penghapusan Biometrik Real-Time di Tengah Sesi Aktif:** `SR-SEC3` diubah dari SLA `≤ 24 jam` menjadi **seketika (`≤ 60 detik`) termasuk pada terminal yang sedang membuka sesi** | `UC-08` (Hapus Template), `UC-02` (Verifikasi Kehadiran) | `F7.3` (Erase Biometric Data), `F2.5` (Match Identity) | **`S6 Identity & Privacy`** (`C6.3 Erasure Module`), **`S4 Data Management`** (`C4.1 Template DB`), **`S2`** (`C2.2 Session Service`), dan **`S1`** (`C1.7 Roster & Template Cache` wajib menerima sinyal *cache invalidation*) | `IF-I9` (`C2.2.rosterOut → C1.7.rosterIn`) ditambah elemen `revokeNim:string`; port `C6.3.tplDelOut → C4.1.tplIn` memicu notifikasi ke `C2.2` | Uji `SR-SEC3` diubah menjadi: setelah `C6.3` menghapus template, dalam `≤ 60 s` percobaan wajah pada terminal sesi aktif wajib ditolak (`0` lolos) |
+
+**Catatan Dampak Perubahan `SR-FR6` dan `SR-IF4`:**
+- **SR-FR6 berubah → terdampak `C1.3` dan `C2.4`:** Karena penetapan status kehadiran awal (*Hadir/Terlambat*) dilakukan di terminal (`C1.3`) agar tahan mode offline sedangkan finalisasi status (*Alfa* saat tutup sesi) dilakukan di backend (`C2.4`), setiap perubahan aturan jendela waktu pada `SR-FR6` berdampak langsung pada logika di `C1.3` dan `C2.4`.
+- **SR-IF4 berubah → terdampak `C1.10`:** Sinkronisasi waktu NTP dilakukan langsung dari `C1.10 Time Client` ke server NTP eksternal (`E6`) tanpa perantara backend.
 
 ## 9.9 ASSUMPTION
 - A-24: RTM CSV adalah **artefak otoritatif**; tabel di S5 adalah narasi. Bila berbeda, CSV menang dan S5 diperbaiki.
